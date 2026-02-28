@@ -51,21 +51,51 @@ body{
     color:#38bdf8;
 }
 
-/* ===== HERO SECTION ===== */
-.hero{
-    text-align:center;
-    padding:60px 20px 40px;
+/* ===== FEATURED BANNER ===== */
+.featured{
+    height:420px;
+    background:
+    linear-gradient(to right, rgba(2,6,23,0.95), rgba(2,6,23,0.6)),
+    url("https://via.placeholder.com/1200x600");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    padding:40px;
 }
 
-.hero h1{
-    font-size:36px;
+.featured-content{
+    max-width:520px;
+}
+
+.featured h1{
+    font-size:42px;
     margin-bottom:10px;
+}
+
+.featured p{
+    color:#cbd5e1;
+}
+
+.featured-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 20px;
+    background:#38bdf8;
+    color:black;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* ===== HERO TEXT ===== */
+.hero{
+    text-align:center;
+    padding:50px 20px 20px;
 }
 
 .hero p{
     color:#cbd5e1;
-    max-width:700px;
-    margin:auto;
 }
 
 /* ===== CONTAINER ===== */
@@ -78,7 +108,7 @@ body{
 /* ===== SECTION TITLE ===== */
 .section-title{
     font-size:24px;
-    margin-bottom:10px;
+    margin-bottom:15px;
 }
 
 /* ===== SERIES GRID ===== */
@@ -96,7 +126,7 @@ body{
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-    min-height:190px;
+    min-height:200px;
     transition:0.3s;
     border:1px solid transparent;
 }
@@ -116,6 +146,15 @@ body{
     color:#cbd5e1;
 }
 
+/* IMAGE AUTO FIT */
+.series-card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:12px;
+}
+
 /* BUTTON */
 .button{
     display:inline-block;
@@ -128,7 +167,17 @@ body{
     font-weight:600;
 }
 
-/* ===== NEWS SECTION ===== */
+/* TRENDING BADGE */
+.badge{
+    background:#ef4444;
+    color:white;
+    font-size:12px;
+    padding:3px 8px;
+    border-radius:6px;
+    margin-left:8px;
+}
+
+/* ===== NEWS ===== */
 .news-card{
     background:#1e293b;
     padding:20px;
@@ -164,9 +213,25 @@ footer{
 
 </header>
 
-<!-- ===== HERO ===== -->
+<!-- ===== FEATURED ===== -->
+<section class="featured">
+
+<div class="featured-content">
+<h1>Genndy Tartakovsky's Primal</h1>
+
+<p>
+A brutal prehistoric world where survival means instinct,
+emotion, and strength. Follow Spear and Fang in one of the
+most powerful animated series ever created.
+</p>
+
+<a href="primal.html" class="featured-btn">Explore Series</a>
+</div>
+
+</section>
+
+<!-- ===== INTRO ===== -->
 <section class="hero">
-<h1>Welcome to Animation World</h1>
 <p>
 Latest animation news, anime updates, episode breakdowns,
 and animated series guides for fans worldwide.
@@ -181,7 +246,7 @@ and animated series guides for fans worldwide.
 <div class="series-grid">
 
 <div class="series-card">
-<h3>Primal</h3>
+<h3>Primal <span class="badge">🔥 Trending</span></h3>
 <p>Prehistoric survival story following Spear and Fang in a brutal world.</p>
 <a class="button" href="primal.html">Open</a>
 </div>
@@ -205,10 +270,9 @@ and animated series guides for fans worldwide.
 </div>
 
 </div>
-
 </div>
 
-<!-- ===== LATEST NEWS ===== -->
+<!-- ===== NEWS ===== -->
 <div class="container">
 
 <h2 class="section-title">📰 Latest Animation News</h2>
@@ -227,6 +291,29 @@ Release expectations and early story discussions are trending.
 <footer>
 © 2026 Animation World — Your Universe of Animation
 </footer>
+
+<!-- ===== SCROLL ANIMATION ===== -->
+<script>
+
+const cards=document.querySelectorAll(".series-card");
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+}
+});
+});
+
+cards.forEach(card=>{
+card.style.opacity="0";
+card.style.transform="translateY(40px)";
+card.style.transition="0.6s ease";
+observer.observe(card);
+});
+
+</script>
 
 </body>
 </html>
