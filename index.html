@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="Mrig5pDqKTb-ksKOXq8cip4m3rPMGcZGR1gT752R-wk" />
-    
+
 <title>Animation World | Your Universe of Animation</title>
-<p>Welcome to Animation World — your destination for animation news, anime updates, episode breakdowns, and trending animated series from around the world.</p>
-<!-- Google Font -->
+
+<meta name="description" content="Animation World brings animation news, anime updates, episode breakdowns, and animated series guides for fans worldwide.">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
+/* BODY */
 body{
     margin:0;
     font-family:'Poppins',sans-serif;
@@ -19,42 +22,49 @@ body{
     color:white;
 }
 
-/* Header */
-header{
+/* ===== NAVBAR ===== */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 30px;
     background:#020617;
-    padding:20px;
-    text-align:center;
-    font-size:28px;
+    border-bottom:1px solid #1e293b;
+}
+
+/* LOGO */
+.logo{
+    font-size:24px;
     font-weight:600;
-    letter-spacing:1px;
-}
-
-/* Navigation */
-nav{
-    text-align:center;
-    padding:10px;
-    background:#020617;
-}
-
-nav a{
     color:#38bdf8;
+}
+
+/* MENU */
+.menu a{
+    color:white;
     text-decoration:none;
-    margin:15px;
+    margin-left:25px;
     font-weight:500;
 }
 
-nav a:hover{
-    color:white;
+.menu a:hover{
+    color:#38bdf8;
 }
 
-/* Container */
+/* CONTAINER */
 .container{
     max-width:1000px;
     margin:auto;
     padding:20px;
 }
 
-/* Post Cards */
+/* INTRO TEXT */
+.intro{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* CARDS */
 .card{
     background:#1e293b;
     padding:20px;
@@ -68,10 +78,6 @@ nav a:hover{
     box-shadow:0 0 20px rgba(56,189,248,0.3);
 }
 
-.card h2{
-    margin-top:0;
-}
-
 .button{
     display:inline-block;
     margin-top:10px;
@@ -83,7 +89,7 @@ nav a:hover{
     font-weight:600;
 }
 
-/* Footer */
+/* FOOTER */
 footer{
     text-align:center;
     padding:20px;
@@ -97,36 +103,55 @@ footer{
 
 <body>
 
-<header>
-Animation World
-</header>
+<!-- NAVBAR -->
+<header class="navbar">
 
-<nav>
+<div class="logo">🎬 Animation World</div>
+
+<nav class="menu">
 <a href="index.html">Home</a>
-<a href="#">Episodes</a>
-<a href="#">News</a>
+<a href="tvseries.html">TV Series</a>
+<a href="news.html">News</a>
 <a href="about.html">About</a>
 </nav>
 
+</header>
+
 <div class="container">
 
+<div class="intro">
 <h1>🔥 Latest Animation Updates</h1>
+<p>
+Welcome to Animation World — your destination for animation news,
+anime updates, episode breakdowns, and trending animated series
+from around the world.
+</p>
+</div>
 
 <div class="card">
 <h2>Genndy Tartakovsky's Primal</h2>
-<p>An adult animated prehistoric action series following Spear and Fang as they struggle to survive in a brutal and emotional world.</p>
+<p>
+An adult animated prehistoric action series following Spear and Fang
+as they struggle to survive in a brutal and emotional world.
+</p>
 <a class="button" href="primal.html">View Series</a>
 </div>
 
 <div class="card">
 <h2>Love, Death & Robots — Episode Guide</h2>
-<p>Explore the cyberpunk and sci-fi anthology episodes featuring unique animation styles and deep storytelling themes.</p>
+<p>
+Explore the cyberpunk and sci-fi anthology episodes featuring unique
+animation styles and deep storytelling themes.
+</p>
 <a class="button" href="#">Read More</a>
 </div>
 
 <div class="card">
 <h2>Toy Story 5 — Upcoming Movie News</h2>
-<p>Latest updates, release expectations, and story possibilities for Pixar’s next animated adventure.</p>
+<p>
+Latest updates, release expectations, and story possibilities for
+Pixar’s next animated adventure.
+</p>
 <a class="button" href="#">Read More</a>
 </div>
 
