@@ -3,78 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Genndy Tartakovsky's Primal | Animation World</title>
+
+<title>Primal Episodes Guide</title>
 
 <style>
+
+/* ===== BODY ===== */
 body{
-margin:0;
-font-family:Arial;
-background:#0f172a;
-color:white;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#020617;
+    color:white;
 }
 
+/* ===== HEADER ===== */
 header{
-background:#020617;
-padding:20px;
-text-align:center;
-font-size:26px;
+    text-align:center;
+    padding:20px;
 }
 
+h1{
+    margin:10px 0;
+    color:#38bdf8;
+}
+
+/* ===== SEARCH ===== */
+.search-box{
+    text-align:center;
+    margin:20px;
+}
+
+.search-box input{
+    padding:10px;
+    width:280px;
+    border-radius:8px;
+    border:none;
+}
+
+/* ===== FILTER BUTTONS ===== */
+.filters{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.filters button{
+    padding:10px 15px;
+    margin:5px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#1e293b;
+    color:white;
+}
+
+.filters button:hover{
+    background:#38bdf8;
+    color:black;
+}
+
+/* ===== GRID ===== */
 .container{
-max-width:1000px;
-margin:auto;
-padding:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+    padding:20px;
 }
 
+/* ===== CARD ===== */
 .card{
-background:#1e293b;
-padding:20px;
-margin:15px 0;
-border-radius:10px;
+    background:#0f172a;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.5);
+    transition:.3s;
 }
 
-a{
-color:#38bdf8;
-text-decoration:none;
-font-weight:bold;
+.card:hover{
+    transform:scale(1.04);
 }
+
+/* IMAGE */
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+/* CONTENT */
+.card-content{
+    padding:15px;
+}
+
+.card h2{
+    font-size:18px;
+    color:#38bdf8;
+}
+
+.button{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 14px;
+    background:#38bdf8;
+    color:black;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+}
+
 </style>
 </head>
 
 <body>
 
-<header>Animation World</header>
+<header>
+<h1>Genndy Tartakovsky's Primal — Episodes</h1>
+</header>
 
-<div class="container">
-
-<h1>Genndy Tartakovsky's Primal</h1>
-
-<p>
-Primal is an adult animated action-adventure series created by Genndy Tartakovsky,
-following a caveman named Spear and a dinosaur named Fang as they struggle
-to survive in a brutal prehistoric world filled with danger and emotion.
-</p>
-
-<h2>🔥 Season 3 Episodes</h2>
-
-<div class="card">
-<h3>Episode 7</h3>
-<p>Spear faces rejection and confronts the transformation he has undergone.</p>
-<a href="primal-s3-episode7.html">Read Episode →</a>
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search episode..." onkeyup="searchEpisodes()">
 </div>
 
-<h2>🦴 Season 1 Episodes</h2>
-
-<div class="card">
-<h3>Episode 5</h3>
-<p>Episode summary coming soon.</p>
-<a href="#">Coming Soon</a>
+<!-- FILTER -->
+<div class="filters">
+<button onclick="filterSeason('all')">All</button>
+<button onclick="filterSeason('season1')">Season 1</button>
+<button onclick="filterSeason('season2')">Season 2</button>
+<button onclick="filterSeason('season3')">Season 3</button>
 </div>
 
-<br>
-<a href="index.html">← Back to Home</a>
+<!-- EPISODES -->
+<div class="container" id="episodes">
+
+<!-- CARD -->
+<div class="card season3">
+<img src="https://via.placeholder.com/400x200">
+<div class="card-content">
+<h2>Season 3 — Episode 7</h2>
+<p>Spear faces rejection and transformation in an emotional survival journey.</p>
+<a href="#" class="button">Read More</a>
+</div>
+</div>
+
+<div class="card season2">
+<img src="https://via.placeholder.com/400x200">
+<div class="card-content">
+<h2>Season 2 — Episode 5</h2>
+<p>New enemies rise as Fang protects her family in a brutal landscape.</p>
+<a href="#" class="button">Read More</a>
+</div>
+</div>
+
+<div class="card season1">
+<img src="https://via.placeholder.com/400x200">
+<div class="card-content">
+<h2>Season 1 — Episode 1</h2>
+<p>The beginning of Spear and Fang's survival story in a savage world.</p>
+<a href="#" class="button">Read More</a>
+</div>
+</div>
 
 </div>
+
+<script>
+
+/* ===== FILTER ===== */
+function filterSeason(season){
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+if(season==="all"){
+card.style.display="block";
+}else{
+card.style.display=card.classList.contains(season) ? "block":"none";
+}
+});
+}
+
+/* ===== SEARCH ===== */
+function searchEpisodes(){
+let input=document.getElementById("searchInput").value.toLowerCase();
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+let text=card.innerText.toLowerCase();
+card.style.display=text.includes(input) ? "block":"none";
+});
+}
+
+</script>
 
 </body>
 </html>
