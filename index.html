@@ -4,14 +4,12 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="google-site-verification"
-content="Mrig5pDqKTb-ksKOXq8cip4m3rPMGcZGR1gT752R-wk" />
+<meta name="google-site-verification" content="Mrig5pDqKTb-ksKOXq8cip4m3rPMGcZGR1gT752R-wk" />
 
 <title>Animation World | Your Universe of Animation</title>
 
 <meta name="description"
-content="Animation World — animation news, anime updates, episode guides, and animated series breakdowns for fans worldwide.">
+content="Animation World brings animation news, anime updates, episode breakdowns, and animated series guides for fans worldwide.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -23,19 +21,11 @@ body{
     font-family:'Poppins',sans-serif;
     background:#0f172a;
     color:white;
-    opacity:0;
-    animation:fadeIn .6s ease forwards;
+    overflow-x:hidden;
 }
 
-@keyframes fadeIn{
-    to{opacity:1;}
-}
-
-/* ===== STICKY NAVBAR ===== */
+/* ===== NAVBAR ===== */
 .navbar{
-    position:sticky;
-    top:0;
-    z-index:1000;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -44,84 +34,106 @@ body{
     border-bottom:1px solid #1e293b;
 }
 
-/* LOGO */
 .logo{
     font-size:24px;
     font-weight:600;
     color:#38bdf8;
 }
 
-/* MENU */
 .menu a{
     color:white;
     text-decoration:none;
     margin-left:25px;
     font-weight:500;
-    position:relative;
 }
 
-/* ACTIVE MENU */
-.menu a.active,
 .menu a:hover{
     color:#38bdf8;
 }
 
-.menu a.active::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-6px;
-    width:100%;
-    height:2px;
-    background:#38bdf8;
+/* ===== HERO SECTION ===== */
+.hero{
+    text-align:center;
+    padding:60px 20px 40px;
 }
 
-/* ===== BREADCRUMB ===== */
-.breadcrumb{
-    max-width:1000px;
-    margin:15px auto;
-    padding:0 20px;
-    font-size:14px;
-    color:#94a3b8;
+.hero h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#cbd5e1;
+    max-width:700px;
+    margin:auto;
 }
 
 /* ===== CONTAINER ===== */
 .container{
-    max-width:1000px;
+    max-width:1100px;
     margin:auto;
     padding:20px;
 }
 
-/* INTRO */
-.intro{
-    text-align:center;
-    margin-bottom:30px;
+/* ===== SECTION TITLE ===== */
+.section-title{
+    font-size:24px;
+    margin-bottom:10px;
 }
 
-/* ===== CARD ===== */
-.card{
+/* ===== SERIES GRID ===== */
+.series-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+/* ===== SERIES CARD ===== */
+.series-card{
     background:#1e293b;
-    padding:20px;
-    margin:20px 0;
-    border-radius:12px;
-    transition:.3s;
+    border-radius:14px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:190px;
+    transition:0.3s;
+    border:1px solid transparent;
 }
 
-.card:hover{
+.series-card:hover{
     transform:translateY(-6px);
-    box-shadow:0 0 25px rgba(56,189,248,0.35);
+    border-color:#38bdf8;
+    box-shadow:0 0 20px rgba(56,189,248,0.25);
+}
+
+.series-card h3{
+    margin:0 0 10px 0;
+}
+
+.series-card p{
+    flex-grow:1;
+    color:#cbd5e1;
 }
 
 /* BUTTON */
 .button{
     display:inline-block;
-    margin-top:10px;
-    padding:8px 15px;
+    margin-top:15px;
+    padding:8px 16px;
     background:#38bdf8;
     color:black;
     border-radius:6px;
     text-decoration:none;
     font-weight:600;
+}
+
+/* ===== NEWS SECTION ===== */
+.news-card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:12px;
+    margin-top:20px;
 }
 
 /* ===== FOOTER ===== */
@@ -152,65 +164,69 @@ footer{
 
 </header>
 
-<!-- ===== BREADCRUMB ===== -->
-<div class="breadcrumb">
-Home / Main
-</div>
+<!-- ===== HERO ===== -->
+<section class="hero">
+<h1>Welcome to Animation World</h1>
+<p>
+Latest animation news, anime updates, episode breakdowns,
+and animated series guides for fans worldwide.
+</p>
+</section>
 
+<!-- ===== TRENDING SERIES ===== -->
 <div class="container">
 
-<div class="intro">
-<h1>🔥 Latest Animation Updates</h1>
+<h2 class="section-title">🔥 Trending TV Series</h2>
+
+<div class="series-grid">
+
+<div class="series-card">
+<h3>Primal</h3>
+<p>Prehistoric survival story following Spear and Fang in a brutal world.</p>
+<a class="button" href="primal.html">Open</a>
+</div>
+
+<div class="series-card">
+<h3>Love, Death & Robots</h3>
+<p>Sci-fi animated anthology exploring futuristic and philosophical stories.</p>
+<a class="button" href="#">Open</a>
+</div>
+
+<div class="series-card">
+<h3>Arcane</h3>
+<p>League of Legends universe story blending action and emotional storytelling.</p>
+<a class="button" href="#">Open</a>
+</div>
+
+<div class="series-card">
+<h3>Invincible</h3>
+<p>Adult superhero animated series with intense action and deep character drama.</p>
+<a class="button" href="#">Open</a>
+</div>
+
+</div>
+
+</div>
+
+<!-- ===== LATEST NEWS ===== -->
+<div class="container">
+
+<h2 class="section-title">📰 Latest Animation News</h2>
+
+<div class="news-card">
+<h3>Toy Story 5 Updates</h3>
 <p>
-Welcome to Animation World — your destination for animation news,
-anime updates, episode breakdowns, and trending animated series worldwide.
+Pixar prepares the next chapter of the beloved Toy Story universe.
+Release expectations and early story discussions are trending.
 </p>
 </div>
 
-<div class="card">
-<h2>Genndy Tartakovsky's Primal</h2>
-<p>
-A prehistoric survival story following Spear and Fang through
-a brutal emotional world.
-</p>
-<a class="button" href="primal.html">View Series</a>
 </div>
 
-<div class="card">
-<h2>Love, Death & Robots</h2>
-<p>
-A sci-fi anthology showcasing unique animation styles
-and powerful storytelling themes.
-</p>
-<a class="button" href="#">View Guide</a>
-</div>
-
-<div class="card">
-<h2>Latest Animation News</h2>
-<p>
-Breaking animation announcements, studio updates,
-and upcoming animated projects.
-</p>
-<a class="button" href="news.html">Read News</a>
-</div>
-
-</div>
-
+<!-- ===== FOOTER ===== -->
 <footer>
 © 2026 Animation World — Your Universe of Animation
 </footer>
-
-<!-- ===== ACTIVE MENU SCRIPT ===== -->
-<script>
-const links=document.querySelectorAll(".menu a");
-const current=location.pathname.split("/").pop();
-
-links.forEach(link=>{
-if(link.getAttribute("href")===current){
-link.classList.add("active");
-}
-});
-</script>
 
 </body>
 </html>
