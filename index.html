@@ -4,12 +4,14 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="Mrig5pDqKTb-ksKOXq8cip4m3rPMGcZGR1gT752R-wk" />
+
+<meta name="google-site-verification"
+content="Mrig5pDqKTb-ksKOXq8cip4m3rPMGcZGR1gT752R-wk" />
 
 <title>Animation World | Your Universe of Animation</title>
 
 <meta name="description"
-content="Animation World brings animation news, anime updates, episode breakdowns, and animated series guides for fans worldwide.">
+content="Animation World — animation news, anime updates, episode guides, and animated series breakdowns for fans worldwide.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -21,11 +23,19 @@ body{
     font-family:'Poppins',sans-serif;
     background:#0f172a;
     color:white;
-    overflow-x:hidden;
+    opacity:0;
+    animation:fadeIn .6s ease forwards;
 }
 
-/* ===== NAVBAR ===== */
+@keyframes fadeIn{
+    to{opacity:1;}
+}
+
+/* ===== STICKY NAVBAR ===== */
 .navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -34,155 +44,84 @@ body{
     border-bottom:1px solid #1e293b;
 }
 
+/* LOGO */
 .logo{
     font-size:24px;
     font-weight:600;
     color:#38bdf8;
 }
 
+/* MENU */
 .menu a{
     color:white;
     text-decoration:none;
     margin-left:25px;
     font-weight:500;
+    position:relative;
 }
 
+/* ACTIVE MENU */
+.menu a.active,
 .menu a:hover{
     color:#38bdf8;
 }
 
-/* ===== FEATURED BANNER ===== */
-.featured{
-    height:420px;
-    background:
-    linear-gradient(to right, rgba(2,6,23,0.95), rgba(2,6,23,0.6)),
-    url("https://via.placeholder.com/1200x600");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:center;
-    padding:40px;
-}
-
-.featured-content{
-    max-width:520px;
-}
-
-.featured h1{
-    font-size:42px;
-    margin-bottom:10px;
-}
-
-.featured p{
-    color:#cbd5e1;
-}
-
-.featured-btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:10px 20px;
+.menu a.active::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:100%;
+    height:2px;
     background:#38bdf8;
-    color:black;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:600;
 }
 
-/* ===== HERO TEXT ===== */
-.hero{
-    text-align:center;
-    padding:50px 20px 20px;
-}
-
-.hero p{
-    color:#cbd5e1;
+/* ===== BREADCRUMB ===== */
+.breadcrumb{
+    max-width:1000px;
+    margin:15px auto;
+    padding:0 20px;
+    font-size:14px;
+    color:#94a3b8;
 }
 
 /* ===== CONTAINER ===== */
 .container{
-    max-width:1100px;
+    max-width:1000px;
     margin:auto;
     padding:20px;
 }
 
-/* ===== SECTION TITLE ===== */
-.section-title{
-    font-size:24px;
-    margin-bottom:15px;
+/* INTRO */
+.intro{
+    text-align:center;
+    margin-bottom:30px;
 }
 
-/* ===== SERIES GRID ===== */
-.series-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
-}
-
-/* ===== SERIES CARD ===== */
-.series-card{
+/* ===== CARD ===== */
+.card{
     background:#1e293b;
-    border-radius:14px;
-    padding:22px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    min-height:200px;
-    transition:0.3s;
-    border:1px solid transparent;
+    padding:20px;
+    margin:20px 0;
+    border-radius:12px;
+    transition:.3s;
 }
 
-.series-card:hover{
+.card:hover{
     transform:translateY(-6px);
-    border-color:#38bdf8;
-    box-shadow:0 0 20px rgba(56,189,248,0.25);
-}
-
-.series-card h3{
-    margin:0 0 10px 0;
-}
-
-.series-card p{
-    flex-grow:1;
-    color:#cbd5e1;
-}
-
-/* IMAGE AUTO FIT */
-.series-card img{
-    width:100%;
-    height:160px;
-    object-fit:cover;
-    border-radius:10px;
-    margin-bottom:12px;
+    box-shadow:0 0 25px rgba(56,189,248,0.35);
 }
 
 /* BUTTON */
 .button{
     display:inline-block;
-    margin-top:15px;
-    padding:8px 16px;
+    margin-top:10px;
+    padding:8px 15px;
     background:#38bdf8;
     color:black;
     border-radius:6px;
     text-decoration:none;
     font-weight:600;
-}
-
-/* TRENDING BADGE */
-.badge{
-    background:#ef4444;
-    color:white;
-    font-size:12px;
-    padding:3px 8px;
-    border-radius:6px;
-    margin-left:8px;
-}
-
-/* ===== NEWS ===== */
-.news-card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:12px;
-    margin-top:20px;
 }
 
 /* ===== FOOTER ===== */
@@ -213,106 +152,64 @@ footer{
 
 </header>
 
-<!-- ===== FEATURED ===== -->
-<section class="featured">
-
-<div class="featured-content">
-<h1>Genndy Tartakovsky's Primal</h1>
-
-<p>
-A brutal prehistoric world where survival means instinct,
-emotion, and strength. Follow Spear and Fang in one of the
-most powerful animated series ever created.
-</p>
-
-<a href="primal.html" class="featured-btn">Explore Series</a>
+<!-- ===== BREADCRUMB ===== -->
+<div class="breadcrumb">
+Home / Main
 </div>
 
-</section>
-
-<!-- ===== INTRO ===== -->
-<section class="hero">
-<p>
-Latest animation news, anime updates, episode breakdowns,
-and animated series guides for fans worldwide.
-</p>
-</section>
-
-<!-- ===== TRENDING SERIES ===== -->
 <div class="container">
 
-<h2 class="section-title">🔥 Trending TV Series</h2>
-
-<div class="series-grid">
-
-<div class="series-card">
-<h3>Primal <span class="badge">🔥 Trending</span></h3>
-<p>Prehistoric survival story following Spear and Fang in a brutal world.</p>
-<a class="button" href="primal.html">Open</a>
-</div>
-
-<div class="series-card">
-<h3>Love, Death & Robots</h3>
-<p>Sci-fi animated anthology exploring futuristic and philosophical stories.</p>
-<a class="button" href="#">Open</a>
-</div>
-
-<div class="series-card">
-<h3>Arcane</h3>
-<p>League of Legends universe story blending action and emotional storytelling.</p>
-<a class="button" href="#">Open</a>
-</div>
-
-<div class="series-card">
-<h3>Invincible</h3>
-<p>Adult superhero animated series with intense action and deep character drama.</p>
-<a class="button" href="#">Open</a>
-</div>
-
-</div>
-</div>
-
-<!-- ===== NEWS ===== -->
-<div class="container">
-
-<h2 class="section-title">📰 Latest Animation News</h2>
-
-<div class="news-card">
-<h3>Toy Story 5 Updates</h3>
+<div class="intro">
+<h1>🔥 Latest Animation Updates</h1>
 <p>
-Pixar prepares the next chapter of the beloved Toy Story universe.
-Release expectations and early story discussions are trending.
+Welcome to Animation World — your destination for animation news,
+anime updates, episode breakdowns, and trending animated series worldwide.
 </p>
 </div>
 
+<div class="card">
+<h2>Genndy Tartakovsky's Primal</h2>
+<p>
+A prehistoric survival story following Spear and Fang through
+a brutal emotional world.
+</p>
+<a class="button" href="primal.html">View Series</a>
 </div>
 
-<!-- ===== FOOTER ===== -->
+<div class="card">
+<h2>Love, Death & Robots</h2>
+<p>
+A sci-fi anthology showcasing unique animation styles
+and powerful storytelling themes.
+</p>
+<a class="button" href="#">View Guide</a>
+</div>
+
+<div class="card">
+<h2>Latest Animation News</h2>
+<p>
+Breaking animation announcements, studio updates,
+and upcoming animated projects.
+</p>
+<a class="button" href="news.html">Read News</a>
+</div>
+
+</div>
+
 <footer>
 © 2026 Animation World — Your Universe of Animation
 </footer>
 
-<!-- ===== SCROLL ANIMATION ===== -->
+<!-- ===== ACTIVE MENU SCRIPT ===== -->
 <script>
+const links=document.querySelectorAll(".menu a");
+const current=location.pathname.split("/").pop();
 
-const cards=document.querySelectorAll(".series-card");
-
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.style.opacity="1";
-entry.target.style.transform="translateY(0)";
+links.forEach(link=>{
+if(link.getAttribute("href")===current){
+link.classList.add("active");
 }
 });
-});
-
-cards.forEach(card=>{
-card.style.opacity="0";
-card.style.transform="translateY(40px)";
-card.style.transition="0.6s ease";
-observer.observe(card);
-});
-
 </script>
 
 </body>
