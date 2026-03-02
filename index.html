@@ -17,181 +17,201 @@ content="Animation World brings animation news, anime updates, episode breakdown
 
 /* ===== BODY ===== */
 body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background:#0f172a;
-    color:white;
-    overflow-x:hidden;
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#0f172a;
+color:white;
+overflow-x:hidden;
 }
 
 /* ===== NAVBAR ===== */
 .navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 36px;
-    background:#020617;
-    border-bottom:1px solid #1e293b;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 36px;
+background:#020617;
+border-bottom:1px solid #1e293b;
 }
 
 .logo{
-    font-size:24px;
-    font-weight:600;
-    color:#38bdf8;
+font-size:24px;
+font-weight:600;
+color:#38bdf8;
 }
 
 .menu a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
-    font-weight:500;
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
 }
 
 .menu a:hover{
-    color:#38bdf8;
+color:#38bdf8;
 }
 
 /* ===== FEATURED BANNER ===== */
 .featured{
-    height:420px;
-    background:
-    linear-gradient(to right, rgba(2,6,23,0.95), rgba(2,6,23,0.6)),
-    url("https://via.placeholder.com/1200x600");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:center;
-    padding:40px;
+height:420px;
+display:flex;
+align-items:center;
+padding:40px;
+background-size:cover;
+background-position:center;
+transition:background-image 1s ease-in-out;
 }
 
 .featured-content{
-    max-width:520px;
+max-width:520px;
 }
 
 .featured h1{
-    font-size:42px;
-    margin-bottom:10px;
+font-size:42px;
+margin-bottom:10px;
 }
 
 .featured p{
-    color:#cbd5e1;
+color:#cbd5e1;
 }
 
 .featured-btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:10px 20px;
-    background:#38bdf8;
-    color:black;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:600;
+display:inline-block;
+margin-top:20px;
+padding:10px 20px;
+background:#38bdf8;
+color:black;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
 }
 
-/* ===== HERO TEXT ===== */
+/* HERO */
 .hero{
-    text-align:center;
-    padding:50px 20px 20px;
+text-align:center;
+padding:50px 20px 20px;
 }
 
 .hero p{
-    color:#cbd5e1;
+color:#cbd5e1;
 }
 
-/* ===== CONTAINER ===== */
+/* CONTAINER */
 .container{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
+max-width:1100px;
+margin:auto;
+padding:20px;
 }
 
-/* ===== SECTION TITLE ===== */
 .section-title{
-    font-size:24px;
-    margin-bottom:15px;
+font-size:24px;
+margin-bottom:15px;
 }
 
-/* ===== SERIES GRID ===== */
+/* ===== CAROUSEL ===== */
+.carousel{
+position:relative;
+display:flex;
+align-items:center;
+}
+
+.nav-btn{
+position:absolute;
+top:40%;
+background:#020617;
+border:none;
+color:white;
+font-size:26px;
+padding:10px 14px;
+cursor:pointer;
+border-radius:8px;
+z-index:2;
+}
+
+.nav-btn:hover{
+background:#38bdf8;
+color:black;
+}
+
+.left{ left:-10px; }
+.right{ right:-10px; }
+
+/* SERIES GRID */
 .series-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+overflow:hidden;
 }
 
-/* ===== SERIES CARD ===== */
+/* CARD */
 .series-card{
-    background:#1e293b;
-    border-radius:14px;
-    padding:22px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    min-height:200px;
-    transition:0.3s;
-    border:1px solid transparent;
+background:#1e293b;
+border-radius:14px;
+padding:22px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+min-height:200px;
+transition:0.3s;
+border:1px solid transparent;
 }
 
 .series-card:hover{
-    transform:translateY(-6px);
-    border-color:#38bdf8;
-    box-shadow:0 0 20px rgba(56,189,248,0.25);
-}
-
-.series-card h3{
-    margin:0 0 10px 0;
+transform:translateY(-6px);
+border-color:#38bdf8;
+box-shadow:0 0 20px rgba(56,189,248,0.25);
 }
 
 .series-card p{
-    flex-grow:1;
-    color:#cbd5e1;
+color:#cbd5e1;
 }
 
-/* IMAGE AUTO FIT */
-.series-card img{
-    width:100%;
-    height:160px;
-    object-fit:cover;
-    border-radius:10px;
-    margin-bottom:12px;
-}
-
-/* BUTTON */
 .button{
-    display:inline-block;
-    margin-top:15px;
-    padding:8px 16px;
-    background:#38bdf8;
-    color:black;
-    border-radius:6px;
-    text-decoration:none;
-    font-weight:600;
+display:inline-block;
+margin-top:15px;
+padding:8px 16px;
+background:#38bdf8;
+color:black;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
 }
 
-/* TRENDING BADGE */
 .badge{
-    background:#ef4444;
-    color:white;
-    font-size:12px;
-    padding:3px 8px;
-    border-radius:6px;
-    margin-left:8px;
+background:#ef4444;
+color:white;
+font-size:12px;
+padding:3px 8px;
+border-radius:6px;
+margin-left:8px;
 }
 
-/* ===== NEWS ===== */
+/* NEWS */
 .news-card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:12px;
-    margin-top:20px;
+display:block;
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+text-decoration:none;
+color:white;
+transition:0.3s;
 }
 
-/* ===== FOOTER ===== */
+.news-card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px rgba(56,189,248,0.3);
+border:1px solid #38bdf8;
+}
+
+/* FOOTER */
 footer{
-    text-align:center;
-    padding:20px;
-    background:#020617;
-    margin-top:40px;
-    font-size:14px;
+text-align:center;
+padding:20px;
+background:#020617;
+margin-top:40px;
+font-size:14px;
 }
 
 </style>
@@ -199,9 +219,8 @@ footer{
 
 <body>
 
-<!-- ===== NAVBAR ===== -->
+<!-- NAVBAR -->
 <header class="navbar">
-
 <div class="logo">🎬 Animation World</div>
 
 <nav class="menu">
@@ -210,27 +229,26 @@ footer{
 <a href="news.html">News</a>
 <a href="about.html">About</a>
 </nav>
-
 </header>
 
-<!-- ===== FEATURED ===== -->
+<!-- FEATURED AUTO SLIDER -->
 <section class="featured">
 
 <div class="featured-content">
-<h1>Genndy Tartakovsky's Primal</h1>
+<h1 id="featuredTitle">Genndy Tartakovsky's Primal</h1>
 
-<p>
-A brutal prehistoric world where survival means instinct,
-emotion, and strength. Follow Spear and Fang in one of the
-most powerful animated series ever created.
+<p id="featuredDesc">
+A brutal prehistoric survival story of Spear and Fang.
 </p>
 
-<a href="primal.html" class="featured-btn">Explore Series</a>
+<a id="featuredLink" href="primal.html" class="featured-btn">
+Explore Series
+</a>
 </div>
 
 </section>
 
-<!-- ===== INTRO ===== -->
+<!-- INTRO -->
 <section class="hero">
 <p>
 Latest animation news, anime updates, episode breakdowns,
@@ -238,80 +256,125 @@ and animated series guides for fans worldwide.
 </p>
 </section>
 
-<!-- ===== TRENDING SERIES ===== -->
+<!-- TRENDING SERIES -->
 <div class="container">
 
 <h2 class="section-title">🔥 Trending TV Series</h2>
 
-<div class="series-grid">
+<div class="carousel">
+
+<button class="nav-btn left" onclick="prevSeries()">❮</button>
+
+<div class="series-grid" id="seriesGrid">
 
 <div class="series-card">
 <h3>Primal <span class="badge">🔥 Trending</span></h3>
-<p>Prehistoric survival story following Spear and Fang in a brutal world.</p>
+<p>Prehistoric survival story following Spear and Fang.</p>
 <a class="button" href="primal.html">Open</a>
 </div>
 
 <div class="series-card">
 <h3>Love, Death & Robots</h3>
-<p>Sci-fi animated anthology exploring futuristic and philosophical stories.</p>
+<p>Sci-fi animated anthology exploring futuristic stories.</p>
 <a class="button" href="#">Open</a>
 </div>
 
 <div class="series-card">
 <h3>Arcane</h3>
-<p>League of Legends universe story blending action and emotional storytelling.</p>
+<p>League of Legends universe with emotional storytelling.</p>
 <a class="button" href="#">Open</a>
 </div>
 
 <div class="series-card">
 <h3>Invincible</h3>
-<p>Adult superhero animated series with intense action and deep character drama.</p>
+<p>Adult superhero animation with intense action.</p>
 <a class="button" href="#">Open</a>
 </div>
 
 </div>
+
+<button class="nav-btn right" onclick="nextSeries()">❯</button>
+
+</div>
 </div>
 
-<!-- ===== NEWS ===== -->
+<!-- NEWS -->
 <div class="container">
 
 <h2 class="section-title">📰 Latest Animation News</h2>
 
-<div class="news-card">
+<a href="news.html" class="news-card">
 <h3>Toy Story 5 Updates</h3>
 <p>
 Pixar prepares the next chapter of the beloved Toy Story universe.
 Release expectations and early story discussions are trending.
 </p>
-</div>
+</a>
 
 </div>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
 © 2026 Animation World — Your Universe of Animation
 </footer>
 
-<!-- ===== SCROLL ANIMATION ===== -->
 <script>
 
-const cards=document.querySelectorAll(".series-card");
-
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.style.opacity="1";
-entry.target.style.transform="translateY(0)";
+/* ===== FEATURED AUTO SLIDER ===== */
+const featuredData=[
+{
+title:"Genndy Tartakovsky's Primal",
+desc:"A brutal prehistoric survival story of Spear and Fang.",
+img:"https://via.placeholder.com/1200x600",
+link:"primal.html"
+},
+{
+title:"Arcane",
+desc:"A stunning animated story set in the League of Legends universe.",
+img:"https://via.placeholder.com/1200x600",
+link:"#"
+},
+{
+title:"Invincible",
+desc:"A powerful adult superhero animation with shocking twists.",
+img:"https://via.placeholder.com/1200x600",
+link:"#"
 }
-});
-});
+];
 
-cards.forEach(card=>{
-card.style.opacity="0";
-card.style.transform="translateY(40px)";
-card.style.transition="0.6s ease";
-observer.observe(card);
-});
+let currentFeature=0;
+const featuredSection=document.querySelector(".featured");
+
+function changeFeature(){
+currentFeature=(currentFeature+1)%featuredData.length;
+
+document.getElementById("featuredTitle").innerText=
+featuredData[currentFeature].title;
+
+document.getElementById("featuredDesc").innerText=
+featuredData[currentFeature].desc;
+
+document.getElementById("featuredLink").href=
+featuredData[currentFeature].link;
+
+featuredSection.style.backgroundImage=
+`linear-gradient(to right, rgba(2,6,23,0.95), rgba(2,6,23,0.6)),
+url('${featuredData[currentFeature].img}')`;
+}
+
+changeFeature();
+setInterval(changeFeature,5000);
+
+/* SERIES NAVIGATION */
+function nextSeries(){
+document.getElementById("seriesGrid")
+.scrollBy({left:300,behavior:"smooth"});
+}
+
+function prevSeries(){
+document.getElementById("seriesGrid")
+.scrollBy({left:-300,behavior:"smooth"});
+}
 
 </script>
 
