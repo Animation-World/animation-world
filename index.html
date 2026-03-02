@@ -279,8 +279,13 @@ font-size:14px;
 
 <script>
 
-/* ===== FEATURED AUTO SLIDER ===== */
-const featuredData=[
+<script>
+
+/* ===============================
+   FEATURED AUTO BANNER
+================================ */
+
+const featuredData = [
 {
 title:"Genndy Tartakovsky's Primal",
 desc:"A brutal prehistoric survival story of Spear and Fang.",
@@ -301,97 +306,100 @@ link:"#"
 }
 ];
 
-let currentFeature=0;
-const featuredSection=document.getElementById("featuredBanner");
+let currentFeature = 0;
+const featuredSection = document.getElementById("featuredBanner");
 
 function changeFeature(){
-currentFeature=(currentFeature+1)%featuredData.length;
 
-document.getElementById("bannerTitle").innerText=
+currentFeature = (currentFeature + 1) % featuredData.length;
+
+document.getElementById("bannerTitle").innerText =
 featuredData[currentFeature].title;
 
-document.getElementById("bannerDesc").innerText=
+document.getElementById("bannerDesc").innerText =
 featuredData[currentFeature].desc;
 
-document.getElementById("bannerLink").href=
+document.getElementById("bannerLink").href =
 featuredData[currentFeature].link;
 
-featuredSection.style.backgroundImage=
+featuredSection.style.backgroundImage =
 `linear-gradient(to right, rgba(2,6,23,.95), rgba(2,6,23,.6)),
 url('${featuredData[currentFeature].img}')`;
 }
 
 changeFeature();
-setInterval(changeFeature,5000);
+setInterval(changeFeature, 5000);
 
 
-/* ===== SERIES SLIDER ===== */
-const grid=document.getElementById("seriesGrid");
-const nextBtn=document.getElementById("nextBtn");
-const prevBtn=document.getElementById("prevBtn");
+/* ===============================
+   TRENDING SERIES SLIDER (FIXED)
+================================ */
 
-let position=0;
-  
+const grid = document.getElementById("seriesGrid");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+
+let position = 0;
+
+/* calculate real card move distance */
+function getCardWidth(){
+  const card = grid.querySelector(".series-card");
+  const gap = 20; // same as CSS gap
+  return card.offsetWidth + gap;
+}
+
+/* max scroll allowed */
 function getMaxScroll(){
-return grid.scrollWidth - document.querySelector(".carousel").clientWidth;
+  return grid.scrollWidth -
+         document.querySelector(".carousel").clientWidth;
 }
 
+/* show/hide arrows */
 function updateButtons(){
-const maxScroll = getMaxScroll();
 
-prevBtn.style.display = position >= 0 ? "none" : "block";
-nextBtn.style.display = Math.abs(position) >= maxScroll ? "none" : "block";
+  const maxScroll = getMaxScroll();
+
+  prevBtn.style.display =
+    position >= 0 ? "none" : "block";
+
+  nextBtn.style.display =
+    Math.abs(position) >= maxScroll ? "none" : "block";
 }
 
-nextBtn.onclick=()=>{
-const maxScroll = getMaxScroll();
+/* NEXT */
+nextBtn.onclick = () => {
 
-position -= 300;
+  const move = getCardWidth();
+  const maxScroll = getMaxScroll();
 
-if(Math.abs(position) > maxScroll){
-position = -maxScroll;
-}
+  position -= move;
 
-grid.style.transform=`translateX(${position}px)`;
-updateButtons();
+  if(Math.abs(position) > maxScroll){
+    position = -maxScroll;
+  }
+
+  grid.style.transform = `translateX(${position}px)`;
+  updateButtons();
 };
 
-prevBtn.onclick=()=>{
-position += 300;
+/* PREVIOUS */
+prevBtn.onclick = () => {
 
-if(position > 0){
-position = 0;
-}
+  const move = getCardWidth();
 
-grid.style.transform=`translateX(${position}px)`;
-updateButtons();
-};
+  position += move;
 
-updateButtons();
-  
-function updateButtons(){
-prevBtn.style.display = position >= 0 ? "none":"block";
-const maxScroll = grid.scrollWidth - grid.clientWidth;
-nextBtn.style.display = Math.abs(position)>=maxScroll ? "none":"block";
-}
+  if(position > 0){
+    position = 0;
+  }
 
-nextBtn.onclick=()=>{
-const maxScroll = grid.scrollWidth - grid.clientWidth;
-position -= 300;
-if(Math.abs(position)>maxScroll) position=-maxScroll;
-grid.style.transform=`translateX(${position}px)`;
-updateButtons();
-};
-
-prevBtn.onclick=()=>{
-position += 300;
-if(position>0) position=0;
-grid.style.transform=`translateX(${position}px)`;
-updateButtons();
+  grid.style.transform = `translateX(${position}px)`;
+  updateButtons();
 };
 
 updateButtons();
 
+</script>
 </script>
 
 </body>
