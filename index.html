@@ -104,31 +104,40 @@ font-size:24px;
 margin-bottom:15px;
 }
 
-/* ===== CAROUSEL ===== */
+/* ===== CAROUSEL FIX ===== */
 .carousel{
 position:relative;
+display:flex;
+align-items:center;
 overflow:hidden;
 }
 
 .series-grid{
 display:flex;
 gap:20px;
-transition:transform .5s ease;
+transition:transform 0.5s ease;
+will-change:transform;
 }
 
 .series-card{
-background:#1e293b;
-border-radius:14px;
-padding:22px;
-min-width:320px;
-flex:0 0 320px;
-transition:.3s;
+min-width:260px;
+flex-shrink:0;
+position:relative;
+z-index:1;
 }
 
+/* FIX HOVER OVERLAP */
 .series-card:hover{
 transform:translateY(-6px);
-border:1px solid #38bdf8;
+border-color:#38bdf8;
 box-shadow:0 0 20px rgba(56,189,248,0.25);
+z-index:10;
+}
+
+/* Prevent title overlap */
+.container{
+position:relative;
+z-index:2;
 }
 
 .button{
@@ -287,64 +296,99 @@ font-size:14px;
 <script>
 
 /* ===== AUTO BANNER SLIDER ===== */
-const banners=[
+<script>
+
+/* ===== FEATURED AUTO SLIDER ===== */
+const featuredData=[
 {
-title:"Primal",
+title:"Genndy Tartakovsky's Primal",
 desc:"A brutal prehistoric survival story of Spear and Fang.",
-link:"primal.html",
-img:"https://via.placeholder.com/1200x600"
+img:"https://via.placeholder.com/1200x600",
+link:"primal.html"
 },
 {
 title:"Arcane",
-desc:"A stunning emotional story from the League of Legends universe.",
-link:"#",
-img:"https://via.placeholder.com/1200x600/111827"
+desc:"A stunning animated story set in the League of Legends universe.",
+img:"https://via.placeholder.com/1200x600",
+link:"#"
 },
 {
 title:"Invincible",
-desc:"Superhero animation redefining adult storytelling.",
-link:"#",
-img:"https://via.placeholder.com/1200x600/1e293b"
+desc:"A powerful adult superhero animation with shocking twists.",
+img:"https://via.placeholder.com/1200x600",
+link:"#"
 }
 ];
 
-let bIndex=0;
-const banner=document.getElementById("featuredBanner");
+let currentFeature=0;
+const featuredSection=document.querySelector(".featured");
 
-function changeBanner(){
-bIndex=(bIndex+1)%banners.length;
-banner.style.backgroundImage=
-`linear-gradient(to right, rgba(2,6,23,.95), rgba(2,6,23,.6)), url(${banners[bIndex].img})`;
+function changeFeature(){
+currentFeature=(currentFeature+1)%featuredData.length;
 
-document.getElementById("bannerTitle").textContent=banners[bIndex].title;
-document.getElementById("bannerDesc").textContent=banners[bIndex].desc;
-document.getElementById("bannerLink").href=banners[bIndex].link;
+document.getElementById("featuredTitle").innerText=
+featuredData[currentFeature].title;
+
+document.getElementById("featuredDesc").innerText=
+featuredData[currentFeature].desc;
+
+document.getElementById("featuredLink").href=
+featuredData[currentFeature].link;
+
+featuredSection.style.backgroundImage=
+`linear-gradient(to right, rgba(2,6,23,0.95), rgba(2,6,23,0.6)),
+url('${featuredData[currentFeature].img}')`;
 }
 
-setInterval(changeBanner,5000);
+changeFeature();
+setInterval(changeFeature,5000);
 
-/* ===== CARD SLIDER ===== */
-const slider=document.getElementById("seriesGrid");
-const next=document.getElementById("nextBtn");
-const prev=document.getElementById("prevBtn");
+
+/* ===== SERIES SLIDER (FIXED LIMIT) ===== */
+
+const grid=document.getElementById("seriesGrid");
+const nextBtn=document.querySelector(".next");
+const prevBtn=document.querySelector(".left");
 
 let position=0;
-const move=340;
 
-next.onclick=()=>{
-position-=move;
-slider.style.transform=`translateX(${position}px)`;
-prev.style.display="block";
-};
+function updateButtons(){
+prevBtn.style.display = position >= 0 ? "none" : "block";
 
-prev.onclick=()=>{
-position+=move;
-if(position>=0){
-position=0;
-prev.style.display="none";
+const maxScroll = grid.scrollWidth - grid.clientWidth;
+
+if(Math.abs(position) >= maxScroll){
+nextBtn.style.display="none";
+}else{
+nextBtn.style.display="block";
 }
-slider.style.transform=`translateX(${position}px)`;
+}
+
+nextBtn.onclick=()=>{
+const maxScroll = grid.scrollWidth - grid.clientWidth;
+
+position -= 300;
+
+if(Math.abs(position) > maxScroll){
+position = -maxScroll;
+}
+
+grid.style.transform=`translateX(${position}px)`;
+updateButtons();
 };
+
+prevBtn.onclick=()=>{
+position += 300;
+
+if(position>0) position=0;
+
+grid.style.transform=`translateX(${position}px)`;
+updateButtons();
+};
+
+updateButtons();
+
+</script>
 
 </script>
 
