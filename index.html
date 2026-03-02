@@ -186,6 +186,44 @@ padding:3px 8px;
 border-radius:6px;
 margin-left:8px;
 }
+  /* CARD SLIDER */
+.slider-wrapper{
+position:relative;
+overflow:hidden;
+}
+
+.series-grid{
+display:flex;
+gap:20px;
+transition:transform 0.5s ease;
+}
+
+.series-card{
+min-width:260px;
+flex-shrink:0;
+}
+
+/* ARROWS */
+.slide-btn{
+position:absolute;
+top:40%;
+background:#020617;
+border:none;
+color:white;
+font-size:26px;
+padding:10px 14px;
+cursor:pointer;
+border-radius:8px;
+z-index:5;
+}
+
+.slide-btn:hover{
+background:#38bdf8;
+color:black;
+}
+
+.prev{ left:-10px; display:none; }
+.next{ right:-10px; }
 
 /* NEWS */
 .news-card{
@@ -293,7 +331,7 @@ and animated series guides for fans worldwide.
 
 </div>
 
-<button class="nav-btn right" onclick="nextSeries()">❯</button>
+<button class="slide-btn next" id="nextBtn">❯</button>
 
 </div>
 </div>
@@ -375,6 +413,32 @@ function prevSeries(){
 document.getElementById("seriesGrid")
 .scrollBy({left:-300,behavior:"smooth"});
 }
+
+<script>
+
+const slider=document.getElementById("seriesSlider");
+const nextBtn=document.getElementById("nextBtn");
+const prevBtn=document.getElementById("prevBtn");
+
+let position=0;
+
+nextBtn.onclick=()=>{
+position -= 300;
+slider.style.transform=`translateX(${position}px)`;
+prevBtn.style.display="block";
+};
+
+prevBtn.onclick=()=>{
+position += 300;
+slider.style.transform=`translateX(${position}px)`;
+
+if(position>=0){
+prevBtn.style.display="none";
+position=0;
+}
+};
+
+</script>  
 
 </script>
 
