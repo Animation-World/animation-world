@@ -103,14 +103,15 @@ position:relative;
 display:flex;
 align-items:center;
 overflow:hidden;
-padding-top:10px;   /* ✅ NEW — prevents overlap */
+width:100%;
 }
 
 .series-grid{
 display:flex;
 gap:20px;
 transition:transform .5s ease;
-padding-bottom:10px; /* hover space */
+padding-bottom:10px; /* prevents hover cut */
+box-sizing:border-box;
 }
 
 .series-card{
@@ -330,8 +331,9 @@ const nextBtn=document.getElementById("nextBtn");
 const prevBtn=document.getElementById("prevBtn");
 
 let position=0;
+  
 function getMaxScroll(){
-return grid.scrollWidth - grid.parentElement.clientWidth;
+return grid.scrollWidth - document.querySelector(".carousel").clientWidth;
 }
 
 function updateButtons(){
