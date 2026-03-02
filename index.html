@@ -84,12 +84,13 @@ padding:50px 20px 20px;
 color:#cbd5e1;
 }
 
+/* ⭐ FIX: stop overflow under title */
 .container{
 max-width:1100px;
 margin:auto;
 padding:20px;
 position:relative;
-z-index:2;
+overflow:hidden;
 }
 
 .section-title{
@@ -104,14 +105,14 @@ display:flex;
 align-items:center;
 overflow:hidden;
 width:100%;
+padding:0 10px; /* FIX last card cut */
+box-sizing:border-box;
 }
 
 .series-grid{
 display:flex;
 gap:20px;
 transition:transform .5s ease;
-padding-bottom:10px; /* prevents hover cut */
-box-sizing:border-box;
 }
 
 .series-card{
@@ -127,7 +128,6 @@ transition:.3s;
 transform:translateY(-6px);
 box-shadow:0 0 20px rgba(56,189,248,0.25);
 border:1px solid #38bdf8;
-z-index:10;
 }
 
 .button{
@@ -168,8 +168,8 @@ background:#38bdf8;
 color:black;
 }
 
-.left{ left:-15px; display:none; }
-.right{ right:-15px; }
+.left{ left:0; display:none; }
+.right{ right:0; }
 
 /* NEWS */
 .news-card{
@@ -263,143 +263,80 @@ font-size:14px;
 </div>
 </div>
 
-<div class="container">
-<h2 class="section-title">📰 Latest Animation News</h2>
-
-<div class="news-card" onclick="location.href='news.html'">
-<h3>Toy Story 5 Updates</h3>
-<p>Pixar prepares the next chapter of the beloved Toy Story universe.</p>
-</div>
-
-</div>
-
 <footer>
 © 2026 Animation World — Your Universe of Animation
 </footer>
 
 <script>
 
-<script>
+/* ===== FEATURED AUTO BANNER ===== */
 
-/* ===============================
-   FEATURED AUTO BANNER
-================================ */
-
-const featuredData = [
-{
-title:"Genndy Tartakovsky's Primal",
-desc:"A brutal prehistoric survival story of Spear and Fang.",
-img:"https://via.placeholder.com/1200x600",
-link:"primal.html"
-},
-{
-title:"Arcane",
-desc:"A stunning animated story set in the League of Legends universe.",
-img:"https://via.placeholder.com/1200x600",
-link:"#"
-},
-{
-title:"Invincible",
-desc:"A powerful adult superhero animation with shocking twists.",
-img:"https://via.placeholder.com/1200x600",
-link:"#"
-}
+const featuredData=[
+{title:"Primal",desc:"A brutal prehistoric survival story.",img:"https://via.placeholder.com/1200x600",link:"primal.html"},
+{title:"Arcane",desc:"League of Legends animated masterpiece.",img:"https://via.placeholder.com/1200x600",link:"#"},
+{title:"Invincible",desc:"Adult superhero animation.",img:"https://via.placeholder.com/1200x600",link:"#"}
 ];
 
-let currentFeature = 0;
-const featuredSection = document.getElementById("featuredBanner");
+let currentFeature=0;
+const featuredSection=document.getElementById("featuredBanner");
 
 function changeFeature(){
+currentFeature=(currentFeature+1)%featuredData.length;
 
-currentFeature = (currentFeature + 1) % featuredData.length;
+bannerTitle.innerText=featuredData[currentFeature].title;
+bannerDesc.innerText=featuredData[currentFeature].desc;
+bannerLink.href=featuredData[currentFeature].link;
 
-document.getElementById("bannerTitle").innerText =
-featuredData[currentFeature].title;
-
-document.getElementById("bannerDesc").innerText =
-featuredData[currentFeature].desc;
-
-document.getElementById("bannerLink").href =
-featuredData[currentFeature].link;
-
-featuredSection.style.backgroundImage =
+featuredSection.style.backgroundImage=
 `linear-gradient(to right, rgba(2,6,23,.95), rgba(2,6,23,.6)),
 url('${featuredData[currentFeature].img}')`;
 }
 
 changeFeature();
-setInterval(changeFeature, 5000);
+setInterval(changeFeature,5000);
 
 
-/* ===============================
-   TRENDING SERIES SLIDER (FIXED)
-================================ */
+/* ===== SERIES SLIDER ===== */
 
-const grid = document.getElementById("seriesGrid");
-const nextBtn = document.getElementById("nextBtn");
-const prevBtn = document.getElementById("prevBtn");
+const grid=document.getElementById("seriesGrid");
+const nextBtn=document.getElementById("nextBtn");
+const prevBtn=document.getElementById("prevBtn");
+const carousel=document.querySelector(".carousel");
 
-let position = 0;
+let position=0;
 
-/* calculate real card move distance */
-function getCardWidth(){
-  const card = grid.querySelector(".series-card");
-  const gap = 20; // same as CSS gap
-  return card.offsetWidth + gap;
+function getMove(){
+const card=grid.querySelector(".series-card");
+return card.offsetWidth+20;
 }
 
-/* max scroll allowed */
 function getMaxScroll(){
-  return grid.scrollWidth -
-         document.querySelector(".carousel").clientWidth;
+return grid.scrollWidth-carousel.clientWidth;
 }
 
-/* show/hide arrows */
 function updateButtons(){
-
-  const maxScroll = getMaxScroll();
-
-  prevBtn.style.display =
-    position >= 0 ? "none" : "block";
-
-  nextBtn.style.display =
-    Math.abs(position) >= maxScroll ? "none" : "block";
+const max=getMaxScroll();
+prevBtn.style.display=position>=0?"none":"block";
+nextBtn.style.display=Math.abs(position)>=max?"none":"block";
 }
 
-/* NEXT */
-nextBtn.onclick = () => {
-
-  const move = getCardWidth();
-  const maxScroll = getMaxScroll();
-
-  position -= move;
-
-  if(Math.abs(position) > maxScroll){
-    position = -maxScroll;
-  }
-
-  grid.style.transform = `translateX(${position}px)`;
-  updateButtons();
+nextBtn.onclick=()=>{
+position-=getMove();
+if(Math.abs(position)>getMaxScroll())
+position=-getMaxScroll();
+grid.style.transform=`translateX(${position}px)`;
+updateButtons();
 };
 
-/* PREVIOUS */
-prevBtn.onclick = () => {
-
-  const move = getCardWidth();
-
-  position += move;
-
-  if(position > 0){
-    position = 0;
-  }
-
-  grid.style.transform = `translateX(${position}px)`;
-  updateButtons();
+prevBtn.onclick=()=>{
+position+=getMove();
+if(position>0) position=0;
+grid.style.transform=`translateX(${position}px)`;
+updateButtons();
 };
 
 updateButtons();
 
-</script>
 </script>
 
 </body>
