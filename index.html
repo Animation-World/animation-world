@@ -103,12 +103,14 @@ position:relative;
 display:flex;
 align-items:center;
 overflow:hidden;
+padding-top:10px;   /* ✅ NEW — prevents overlap */
 }
 
 .series-grid{
 display:flex;
 gap:20px;
 transition:transform .5s ease;
+padding-bottom:10px; /* hover space */
 }
 
 .series-card{
@@ -121,7 +123,7 @@ transition:.3s;
 }
 
 .series-card:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 box-shadow:0 0 20px rgba(56,189,248,0.25);
 border:1px solid #38bdf8;
 z-index:10;
@@ -328,7 +330,43 @@ const nextBtn=document.getElementById("nextBtn");
 const prevBtn=document.getElementById("prevBtn");
 
 let position=0;
+function getMaxScroll(){
+return grid.scrollWidth - grid.parentElement.clientWidth;
+}
 
+function updateButtons(){
+const maxScroll = getMaxScroll();
+
+prevBtn.style.display = position >= 0 ? "none" : "block";
+nextBtn.style.display = Math.abs(position) >= maxScroll ? "none" : "block";
+}
+
+nextBtn.onclick=()=>{
+const maxScroll = getMaxScroll();
+
+position -= 300;
+
+if(Math.abs(position) > maxScroll){
+position = -maxScroll;
+}
+
+grid.style.transform=`translateX(${position}px)`;
+updateButtons();
+};
+
+prevBtn.onclick=()=>{
+position += 300;
+
+if(position > 0){
+position = 0;
+}
+
+grid.style.transform=`translateX(${position}px)`;
+updateButtons();
+};
+
+updateButtons();
+  
 function updateButtons(){
 prevBtn.style.display = position >= 0 ? "none":"block";
 const maxScroll = grid.scrollWidth - grid.clientWidth;
