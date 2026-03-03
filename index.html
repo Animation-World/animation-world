@@ -14,7 +14,9 @@ content="Animation World brings animation news, anime updates, episode breakdown
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-scroll-behavior:smooth;
+html{
+  scroll-behavior:smooth;
+}
 /* ===== BODY ===== */
 body{
 margin:0;
@@ -62,6 +64,7 @@ background-repeat:no-repeat;
 transition:opacity .4s ease;
 transition:background 1s ease-in-out;
 overflow:hidden;
+border-bottom:1px solid #1e293b;
 }
 
 /* Cinematic dark overlay */
@@ -101,6 +104,11 @@ color:black;
 border-radius:8px;
 text-decoration:none;
 font-weight:600;
+}
+.featured-btn:hover{
+background:white;
+color:#020617;
+transition:.3s;
 }
 .banner-timeline{
 display:flex;
@@ -189,7 +197,10 @@ flex-direction:column;
 overflow:hidden;
 margin:10px 0 0 0;
 }
-
+.series-card,
+.news-card{
+transition:all .3s ease;
+}
 .series-card p{
 margin:0;
 font-size:14px;
@@ -273,7 +284,7 @@ color:black;
 background:#1e293b;
 padding:20px;
 border-radius:12px;
-margin:20px 50px;   /* adds left-right safe spacing */
+margin:20px 0;
 transition:.3s;
 cursor:pointer;
 }
