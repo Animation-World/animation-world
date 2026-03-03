@@ -71,19 +71,32 @@ font-size:22px;
 font-weight:600;
 color:#38bdf8;
 text-decoration:none;
+position:relative;
 }
 
+/* Round logo image */
 .logo img{
 height:42px;
 width:42px;
-border-radius:50%;       /* Makes it round */
+border-radius:50%;
 object-fit:cover;
-transition:transform .3s ease;
+transition:transform .4s ease;
 }
 
-/* Zoom on hover */
-.logo img:hover{
-transform:scale(1.15);
+/* Smooth zoom */
+.logo:hover img{
+transform:scale(1.15) rotate(5deg);
+}
+
+/* Glow animation */
+.logo span{
+transition:.3s ease;
+}
+
+.logo:hover span{
+text-shadow:0 0 8px #38bdf8,
+            0 0 18px #38bdf8,
+            0 0 28px #38bdf8;
 }
 
 .menu a{
@@ -485,8 +498,6 @@ font-size:14px;
 
 
 <script>
-/* ===== NAVBAR SCROLL EFFECT ===== */
-
 const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
