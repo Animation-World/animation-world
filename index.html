@@ -44,23 +44,26 @@ overflow-x:hidden;
   box-sizing: border-box; 
   z-index: 1000;
   transition: all .3s ease;
+
+  /* 1. Add a slight background tint (required for blur to show) */
+  background-color: rgba(255, 255, 255, 0.05); 
   
-  /* 1. Start Transparent with Blur */
-  background-color: rgba(255, 255, 255, 0.05); /* Very slight tint so blur is visible */
+  /* 2. Apply the blur */
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px); /* Required for Safari support */
 }
 
 .navbar.scrolled {
-  /* 2. Turn Solid Black on Scroll */
-  background: #020617; 
+  /* 3. Transition to solid black on scroll */
+  background: #000000; 
   height: 65px;
   border-bottom: 1px solid #1e293b;
   
-  /* Remove blur when black (optional, for performance) */
+  /* 4. Disable blur on scrolled state for better performance */
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
+
 
 .navbar.scrolled .logo {
   color: #38bdf8;
