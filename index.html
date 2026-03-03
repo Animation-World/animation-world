@@ -427,6 +427,8 @@ font-size:14px;
 © 2026 Animation World — Your Universe of Animation
 </footer>
 
+
+
 <script>
 
 /* ===== FEATURED AUTO BANNER ===== */
@@ -473,6 +475,9 @@ let currentFeature=0;
 
 const featuredSection=document.getElementById("featuredBanner");
 const timeline=document.getElementById("bannerTimeline");
+const bannerTitle=document.getElementById("bannerTitle");
+const bannerDesc=document.getElementById("bannerDesc");
+const bannerLink=document.getElementById("bannerLink");
 
 function renderTimeline(){
 timeline.innerHTML="";
@@ -486,17 +491,7 @@ div.innerHTML=`<img src="${item.thumb}">`;
 
 div.onclick=()=>{
 currentFeature=index;
-updateBanner(
-  featuredSection.style.opacity = 0;
-
-setTimeout(()=>{
-featuredSection.style.backgroundImage =
-`linear-gradient(to right, rgba(2,6,23,.95), rgba(2,6,23,.6)),
-url('${featuredData[currentFeature].img}')`;
-
-featuredSection.style.opacity = 1;
-},200);
-);
+updateBanner();
 };
 
 timeline.appendChild(div);
@@ -529,56 +524,49 @@ updateBanner();
 setInterval(autoSlide,5000);
 
 
-/* ===== SERIES SLIDER FIXED ===== */
+/* ===== SERIES SLIDER ===== */
 
-const grid = document.getElementById("seriesGrid");
-const nextBtn = document.getElementById("nextBtn");
-const prevBtn = document.getElementById("prevBtn");
+const grid=document.getElementById("seriesGrid");
+const nextBtn=document.getElementById("nextBtn");
+const prevBtn=document.getElementById("prevBtn");
+const carousel=document.querySelector(".carousel");
 
-let position = 0;
+let position=0;
 
-function getCardWidth(){
-  const card = document.querySelector(".series-card");
-  return card.offsetWidth + 20; // 20 = gap
+function getMove(){
+const card=grid.querySelector(".series-card");
+return card.offsetWidth+20;
 }
 
-nextBtn.addEventListener("click", () => {
-  const moveAmount = getCardWidth();
-  const maxScroll = grid.scrollWidth - grid.parentElement.clientWidth;
-
-  position -= moveAmount;
-
-  if (Math.abs(position) > maxScroll) {
-    position = -maxScroll;
-  }
-
-  grid.style.transform = `translateX(${position}px)`;
-  updateButtons();
-});
-
-prevBtn.addEventListener("click", () => {
-  const moveAmount = getCardWidth();
-
-  position += moveAmount;
-
-  if (position > 0) {
-    position = 0;
-  }
-
-  grid.style.transform = `translateX(${position}px)`;
-  updateButtons();
-});
+function getMaxScroll(){
+return grid.scrollWidth-carousel.clientWidth;
+}
 
 function updateButtons(){
-  const maxScroll = grid.scrollWidth - grid.parentElement.clientWidth;
-
-  prevBtn.style.display = position >= 0 ? "none" : "block";
-  nextBtn.style.display = Math.abs(position) >= maxScroll ? "none" : "block";
+const max=getMaxScroll();
+prevBtn.style.display=position>=0?"none":"block";
+nextBtn.style.display=Math.abs(position)>=max?"none":"block";
 }
 
-updateButtons();;
+nextBtn.onclick=()=>{
+position-=getMove();
+if(Math.abs(position)>getMaxScroll())
+position=-getMaxScroll();
+grid.style.transform=`translateX(${position}px)`;
+updateButtons();
+};
+
+prevBtn.onclick=()=>{
+position+=getMove();
+if(position>0) position=0;
+grid.style.transform=`translateX(${position}px)`;
+updateButtons();
+};
+
+updateButtons();
 
 </script>
+
 
 </body>
 </html>
