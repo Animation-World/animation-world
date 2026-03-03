@@ -76,7 +76,38 @@ border-radius:8px;
 text-decoration:none;
 font-weight:600;
 }
+/* ===== BANNER TIMELINE ===== */
 
+.banner-timeline{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:-50px;
+padding-bottom:30px;
+position:relative;
+z-index:2;
+}
+
+.banner-thumb{
+width:140px;
+height:80px;
+border-radius:8px;
+overflow:hidden;
+cursor:pointer;
+}
+
+.banner-thumb img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:grayscale(100%);
+transition:.4s ease;
+}
+
+.banner-thumb.active img{
+filter:grayscale(0%);
+transform:scale(1.05);
+}
 /* HERO */
 .hero{
 text-align:center;
@@ -264,13 +295,13 @@ font-size:14px;
 </header>
 
 <section class="featured" id="featuredBanner">
-<div class="featured-content">
-<h1 id="bannerTitle">Primal</h1>
-<p id="bannerDesc">A brutal prehistoric survival story of Spear and Fang.</p>
-<a id="bannerLink" href="primal.html" class="featured-btn">Explore Series</a>
-</div>
+ <div class="featured-content">
+  <h1 id="bannerTitle">Primal</h1>
+  <p id="bannerDesc">A brutal prehistoric survival story of Spear and Fang.</p>
+ <a id="bannerLink" href="primal.html" class="featured-btn">Explore Series</a>
+ </div>
 </section>
-
+<div class="banner-timeline" id="bannerTimeline"></div>
 <section class="hero">
 <p>Latest animation news, anime updates, and animated series guides.</p>
 </section>
@@ -359,16 +390,68 @@ font-size:14px;
 /* ===== FEATURED AUTO BANNER ===== */
 
 const featuredData=[
-{title:"Primal",desc:"A brutal prehistoric survival story.",img:"https://via.placeholder.com/1200x600",link:"primal.html"},
-{title:"Arcane",desc:"League of Legends animated masterpiece.",img:"https://via.placeholder.com/1200x600",link:"#"},
-{title:"Invincible",desc:"Adult superhero animation.",img:"https://via.placeholder.com/1200x600",link:"#"}
+{
+title:"Primal",
+desc:"A brutal prehistoric survival story of Spear and Fang.",
+img:"images/primal-bg.jpg",
+thumb:"images/primal.jpg",
+link:"primal.html"
+},
+{
+title:"Arcane",
+desc:"League of Legends animated masterpiece.",
+img:"images/arcane-bg.jpg",
+thumb:"images/arcane.webp",
+link:"#"
+},
+{
+title:"Invincible",
+desc:"Adult superhero animation.",
+img:"images/invincible-bg.jpg",
+thumb:"images/invincible.jpg",
+link:"#"
+},
+{
+title:"Love, Death & Robots",
+desc:"Sci-fi anthology series.",
+img:"images/love-bg.jpg",
+thumb:"images/love-death-robots.jpg",
+link:"#"
+},
+{
+title:"Blue Eye Samurai",
+desc:"A warrior's revenge journey.",
+img:"images/blueeye-bg.jpg",
+thumb:"images/blueeye.jpg",
+link:"#"
+}
 ];
 
 let currentFeature=0;
-const featuredSection=document.getElementById("featuredBanner");
 
-function changeFeature(){
-currentFeature=(currentFeature+1)%featuredData.length;
+const featuredSection=document.getElementById("featuredBanner");
+const timeline=document.getElementById("bannerTimeline");
+
+function renderTimeline(){
+timeline.innerHTML="";
+
+featuredData.forEach((item,index)=>{
+const div=document.createElement("div");
+div.classList.add("banner-thumb");
+if(index===0) div.classList.add("active");
+
+div.innerHTML=`<img src="${item.thumb}">`;
+
+div.onclick=()=>{
+currentFeature=index;
+updateBanner();
+};
+
+timeline.appendChild(div);
+});
+}
+
+function updateBanner(){
 
 bannerTitle.innerText=featuredData[currentFeature].title;
 bannerDesc.innerText=featuredData[currentFeature].desc;
@@ -377,10 +460,21 @@ bannerLink.href=featuredData[currentFeature].link;
 featuredSection.style.backgroundImage=
 `linear-gradient(to right, rgba(2,6,23,.95), rgba(2,6,23,.6)),
 url('${featuredData[currentFeature].img}')`;
+
+document.querySelectorAll(".banner-thumb")
+.forEach((el,i)=>{
+el.classList.toggle("active", i===currentFeature);
+});
 }
 
-changeFeature();
-setInterval(changeFeature,5000);
+function autoSlide(){
+currentFeature=(currentFeature+1)%featuredData.length;
+updateBanner();
+}
+
+renderTimeline();
+updateBanner();
+setInterval(autoSlide,5000);
 
 
 /* ===== SERIES SLIDER ===== */
