@@ -47,11 +47,18 @@ transition:all .3s ease;
 z-index:1000;
 }
 
-.navbar.scrolled{
-background:#020617;
-height:65px;
-border-bottom:1px solid #1e293b;
+.navbar.scrolled {
+  /* Use rgba to let the blur effect show through */
+  background-color: rgba(2, 6, 23, 0.8); 
+  
+  /* The magic blur lines */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Support for Safari */
+  
+  height: 65px;
+  border-bottom: 1px solid #1e293b;
 }
+
 .navbar.scrolled .logo{
 color:#38bdf8;
 text-shadow:0 0 10px rgba(56,189,248,.6);
@@ -493,6 +500,15 @@ font-size:14px;
 
 
 <script>
+const navbar = document.querySelector(".navbar");
+
+const updateNavbar = () => {
+  // Adds 'scrolled' class if page is scrolled more than 50px
+  navbar.classList.toggle("scrolled", window.scrollY > 50);
+};
+
+window.addEventListener("scroll", updateNavbar);
+window.addEventListener("load", updateNavbar);
 
 /* ===== FEATURED AUTO BANNER ===== */
 
