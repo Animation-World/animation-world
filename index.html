@@ -46,7 +46,7 @@ overflow-x:hidden;
   transition: all .3s ease;
 
   /* 1. Add a slight background tint (required for blur to show) */
-  background-color: rgba(255, 255, 255, 0.05); 
+  background-color: blur(15px); 
   
   /* 2. Apply the blur */
   backdrop-filter: blur(15px);
@@ -55,7 +55,7 @@ overflow-x:hidden;
 
 .navbar.scrolled {
   /* 3. Transition to solid black on scroll */
-  background:blur(0px); 
+  background:black; 
   height: 65px;
   border-bottom: 1px solid #1e293b;
   
