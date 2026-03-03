@@ -12,6 +12,7 @@
 content="Animation World brings animation news, anime updates, episode breakdowns, and animated series guides for fans worldwide.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
 <link rel="icon" type="image/jpeg" sizes="32x32" href="images/logo.jpeg">
 <link rel="icon" type="image/jpeg" sizes="16x16" href="images/logo.jpeg">
 <link rel="apple-touch-icon" href="images/logo.jpeg">
@@ -29,14 +30,37 @@ color:white;
 overflow-x:hidden;
 }
 
-/* ===== NAVBAR ===== */
+/* ===== ADVANCED NAVBAR ===== */
+
 .navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 36px;
+padding:20px 40px;
+background:transparent;   /* transparent over banner */
+transition:all .3s ease;
+z-index:1000;
+border-bottom:1px solid transparent;
+}
+
+/* When scrolled */
+.navbar.scrolled{
 background:#020617;
+padding:12px 40px;  /* shrink */
 border-bottom:1px solid #1e293b;
+}
+.navbar.scrolled .logo{
+color:#38bdf8;
+text-shadow:0 0 10px rgba(56,189,248,.6);
+}
+
+/* Prevent content hiding under navbar */
+body{
+padding-top:80px;
 }
 
 .logo{
@@ -461,7 +485,17 @@ font-size:14px;
 
 
 <script>
+/* ===== NAVBAR SCROLL EFFECT ===== */
 
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
 /* ===== FEATURED AUTO BANNER ===== */
 
 const featuredData=[
