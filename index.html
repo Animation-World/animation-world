@@ -47,8 +47,16 @@ text-decoration:none;
 }
 
 .logo img{
-height:40px;
-width:auto;
+height:42px;
+width:42px;
+border-radius:50%;       /* Makes it round */
+object-fit:cover;
+transition:transform .3s ease;
+}
+
+/* Zoom on hover */
+.logo img:hover{
+transform:scale(1.15);
 }
 
 .menu a{
