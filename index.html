@@ -529,46 +529,54 @@ updateBanner();
 setInterval(autoSlide,5000);
 
 
-/* ===== SERIES SLIDER ===== */
+/* ===== SERIES SLIDER FIXED ===== */
 
-const grid=document.getElementById("seriesGrid");
-const nextBtn=document.getElementById("nextBtn");
-const prevBtn=document.getElementById("prevBtn");
-const carousel=document.querySelector(".carousel");
+const grid = document.getElementById("seriesGrid");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
 
-let position=0;
+let position = 0;
 
-function getMove(){
-const card=grid.querySelector(".series-card");
-return card.offsetWidth+20;
+function getCardWidth(){
+  const card = document.querySelector(".series-card");
+  return card.offsetWidth + 20; // 20 = gap
 }
 
-function getMaxScroll(){
-return grid.scrollWidth-carousel.clientWidth;
-}
+nextBtn.addEventListener("click", () => {
+  const moveAmount = getCardWidth();
+  const maxScroll = grid.scrollWidth - grid.parentElement.clientWidth;
+
+  position -= moveAmount;
+
+  if (Math.abs(position) > maxScroll) {
+    position = -maxScroll;
+  }
+
+  grid.style.transform = `translateX(${position}px)`;
+  updateButtons();
+});
+
+prevBtn.addEventListener("click", () => {
+  const moveAmount = getCardWidth();
+
+  position += moveAmount;
+
+  if (position > 0) {
+    position = 0;
+  }
+
+  grid.style.transform = `translateX(${position}px)`;
+  updateButtons();
+});
 
 function updateButtons(){
-const max=getMaxScroll();
-prevBtn.style.display=position>=0?"none":"block";
-nextBtn.style.display=Math.abs(position)>=max?"none":"block";
+  const maxScroll = grid.scrollWidth - grid.parentElement.clientWidth;
+
+  prevBtn.style.display = position >= 0 ? "none" : "block";
+  nextBtn.style.display = Math.abs(position) >= maxScroll ? "none" : "block";
 }
 
-nextBtn.onclick=()=>{
-position-=getMove();
-if(Math.abs(position)>getMaxScroll())
-position=-getMaxScroll();
-grid.style.transform=`translateX(${position}px)`;
-updateButtons();
-};
-
-prevBtn.onclick=()=>{
-position+=getMove();
-if(position>0) position=0;
-grid.style.transform=`translateX(${position}px)`;
-updateButtons();
-};
-
-updateButtons();
+updateButtons();;
 
 </script>
 
