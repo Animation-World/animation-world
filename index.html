@@ -42,12 +42,11 @@ justify-content:space-between;
 align-items:center;
 padding:0 40px;
 box-sizing:border-box;
-background:transparent !important;   /* FORCE transparent */
+background:transparent;
 transition:all .3s ease;
 z-index:1000;
 }
 
-/* After scroll */
 .navbar.scrolled{
 background:#020617;
 height:65px;
@@ -112,7 +111,7 @@ font-weight:500;
 
 .featured{
 margin-top:0;
-padding-top:80px;  /* equal to navbar height */
+padding:60px 60px 60px 60px;  /* equal to navbar height */
 height:520px;
 position:relative;
 display:flex;
@@ -503,7 +502,7 @@ font-size:14px;
 const navbar = document.querySelector(".navbar");
 
 function updateNavbar(){
-  if (window.scrollY > 10) {
+  if (window.scrollY > 50) {
     navbar.classList.add("scrolled");
   } else {
     navbar.classList.remove("scrolled");
