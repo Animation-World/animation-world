@@ -37,9 +37,18 @@ border-bottom:1px solid #1e293b;
 }
 
 .logo{
-font-size:24px;
+display:flex;
+align-items:center;
+gap:10px;
+font-size:22px;
 font-weight:600;
 color:#38bdf8;
+text-decoration:none;
+}
+
+.logo img{
+height:40px;
+width:auto;
 }
 
 .menu a{
@@ -335,7 +344,10 @@ font-size:14px;
 <body>
 
 <header class="navbar">
-<div class="logo">🎬 Animation World</div>
+<div class="logo">
+  <img src="images/logo.jpeg" alt="Animation World Logo">
+  <span>Animation World</span>
+</div>
 <nav class="menu">
 <a href="index.html">Home</a>
 <a href="tvseries.html">TV Series</a>
