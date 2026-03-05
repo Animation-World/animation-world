@@ -41,27 +41,16 @@ overflow-x:hidden;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   z-index: 1000;
   transition: all .3s ease;
 
-  /* 1. Add a slight background tint (required for blur to show) */
-  background-color: blur(55px); 
-  
-  /* 2. Apply the blur */
-  backdrop-filter: blur(55px);
-  -webkit-backdrop-filter: blur(55px); /* Required for Safari support */
-}
+  /* Glass effect */
+  background: rgba(2, 6, 23, 0.35);  /* Transparent tint */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
-.navbar.scrolled {
-  /* 3. Transition to solid black on scroll */
-  background:black; 
-  height: 65px;
-  border-bottom: 1px solid #1e293b;
-  
-  /* 4. Disable blur on scrolled state for better performance */
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 
@@ -507,15 +496,7 @@ font-size:14px;
 
 
 <script>
-const navbar = document.querySelector(".navbar");
 
-const updateNavbar = () => {
-  // Adds 'scrolled' class if page is scrolled more than 50px
-  navbar.classList.toggle("scrolled", window.scrollY > 50);
-};
-
-window.addEventListener("scroll", updateNavbar);
-window.addEventListener("load", updateNavbar);
 
 /* ===== FEATURED AUTO BANNER ===== */
 
