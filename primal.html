@@ -1,27 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+<meta charset="UTF-8">
 <title>Primal Series Guide | Animation World</title>
 
 <style>
-/* HERO SECTION */
+
+/* PAGE */
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#020617;
+color:white;
+}
+
+/* MAIN CONTAINER */
 
 .primal-container{
-padding:80px 60px;
-background:#020617;
-min-height:100vh;
+padding:120px 60px;
+max-width:1400px;
+margin:auto;
 }
 
+/* SERIES TITLE */
 
-/* TITLE */
-
-.primal-title{
-color:white;
+.series-title{
 font-size:42px;
-letter-spacing:3px;
-margin-bottom:40px;
+font-weight:700;
+margin-bottom:10px;
 }
 
+/* SERIES META INFO */
+
+.series-meta{
+display:flex;
+gap:20px;
+align-items:center;
+color:#94a3b8;
+margin-bottom:40px;
+font-size:15px;
+}
+
+.rating{
+background:#facc15;
+color:black;
+padding:4px 10px;
+border-radius:6px;
+font-weight:600;
+}
 
 /* SEASON BUTTONS */
 
@@ -37,6 +65,7 @@ padding:10px 20px;
 margin-right:10px;
 cursor:pointer;
 border-radius:6px;
+font-size:14px;
 transition:.3s;
 }
 
@@ -50,48 +79,7 @@ background:#38bdf8;
 color:black;
 }
 
-
-/* EPISODE ROW */
-
-.episode-row{
-display:flex;
-gap:20px;
-overflow-x:auto;
-padding-bottom:10px;
-}
-
-
-/* EPISODE CARD */
-
-.episode{
-min-width:220px;
-background:#0f172a;
-border-radius:10px;
-overflow:hidden;
-transition:.3s;
-cursor:pointer;
-}
-
-.episode img{
-width:100%;
-height:140px;
-object-fit:cover;
-}
-
-.episode span{
-display:block;
-padding:10px;
-color:white;
-font-size:14px;
-}
-
-.episode:hover{
-transform:scale(1.1);
-box-shadow:0 10px 25px rgba(0,0,0,.7);
-}
-
-
-/* SEASON SWITCH */
+/* SEASON */
 
 .season{
 display:none;
@@ -100,71 +88,184 @@ display:none;
 .season.active{
 display:block;
 }
+
+/* EPISODE GRID */
+
+.episode-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+/* EPISODE CARD */
+
+.episode{
+background:#0f172a;
+border-radius:10px;
+overflow:hidden;
+transition:.3s;
+cursor:pointer;
+}
+
+/* IMAGE */
+
+.episode img{
+width:100%;
+height:140px;
+object-fit:cover;
+display:block;
+}
+
+/* TEXT */
+
+.episode span{
+display:block;
+padding:12px;
+font-size:14px;
+}
+
+/* HOVER */
+
+.episode:hover{
+transform:scale(1.05);
+box-shadow:0 10px 25px rgba(0,0,0,.6);
+}
+
 </style>
 </head>
 
+
 <body>
+
 
 <section class="primal-container">
 
-<h1 class="primal-title">PRIMAL</h1>
+<!-- SERIES INFO -->
+
+<h1 class="series-title">Genndy Tartakovsky's Primal</h1>
+
+<div class="series-meta">
+<span>2019</span>
+<span>Action</span>
+<span>3 Seasons</span>
+<span class="rating">⭐ 8.7 IMDb</span>
+</div>
+
+
+<!-- SEASON BUTTONS -->
 
 <div class="season-switch">
-<button onclick="showSeason('season1')" class="season-btn active">Season 1</button>
-<button onclick="showSeason('season2')" class="season-btn">Season 2</button>
-<button onclick="showSeason('season3')" class="season-btn">Season 3</button>
+
+<button class="season-btn active"
+onclick="showSeason('season1',this)">
+Season 1
+</button>
+
+<button class="season-btn"
+onclick="showSeason('season2',this)">
+Season 2
+</button>
+
+<button class="season-btn"
+onclick="showSeason('season3',this)">
+Season 3
+</button>
+
 </div>
+
 
 
 <!-- SEASON 1 -->
 
 <div id="season1" class="season active">
 
-<div class="episode-row">
+<div class="episode-grid">
 
 <div class="episode">
-<img src="images/ep1.jpg">
-<span>Episode 1</span>
-</div>
-
-<div class="episode">
-<img src="images/ep2.jpg">
-<span>Episode 2</span>
+<img src="images/primal-s1-ep1.jpg">
+<span>Episode 1 – Spear and Fang</span>
 </div>
 
 <div class="episode">
-<img src="images/ep3.jpg">
-<span>Episode 3</span>
+<img src="images/primal-s1-ep2.jpg">
+<span>Episode 2 – River of Snakes</span>
 </div>
 
 <div class="episode">
-<img src="images/ep4.jpg">
-<span>Episode 4</span>
+<img src="images/primal-s1-ep3.jpg">
+<span>Episode 3 – A Cold Death</span>
+</div>
+
+<div class="episode">
+<img src="images/primal-s1-ep4.jpg">
+<span>Episode 4 – Terror Under the Blood Moon</span>
+</div>
+
+<div class="episode">
+<img src="images/primal-s1-ep5.jpg">
+<span>Episode 5 – Rage of the Ape-Men</span>
+</div>
+
+<div class="episode">
+<img src="images/primal-s1-ep6.jpg">
+<span>Episode 6 – Scent of Prey</span>
 </div>
 
 </div>
 
 </div>
+
 
 
 <!-- SEASON 2 -->
 
 <div id="season2" class="season">
 
-<div class="episode-row">
+<div class="episode-grid">
 
 <div class="episode">
-<img src="images/s2ep1.jpg">
-<span>Episode 1</span>
+<img src="images/primal-s2-ep1.jpg">
+<span>Episode 1 – Sea of Despair</span>
+</div>
+
+<div class="episode">
+<img src="images/primal-s2-ep2.jpg">
+<span>Episode 2 – Shadow of Fate</span>
+</div>
+
+<div class="episode">
+<img src="images/primal-s2-ep3.jpg">
+<span>Episode 3 – Dawn of Battle</span>
 </div>
 
 </div>
 
 </div>
+
+
+
+<!-- SEASON 3 -->
+
+<div id="season3" class="season">
+
+<div class="episode-grid">
+
+<div class="episode">
+<img src="images/primal-s3-ep1.jpg">
+<span>Episode 1 – Coming Soon</span>
+</div>
+
+</div>
+
+</div>
+
 
 </section>
+
+
 <script>
- function showSeason(id){
+
+function showSeason(id,btn){
 
 document.querySelectorAll(".season")
 .forEach(s=>s.classList.remove("active"));
@@ -172,14 +273,15 @@ document.querySelectorAll(".season")
 document.getElementById(id)
 .classList.add("active");
 
-
 document.querySelectorAll(".season-btn")
 .forEach(b=>b.classList.remove("active"));
 
-event.target.classList.add("active");
+btn.classList.add("active");
 
 }
+
 </script>
+
 
 </body>
 </html>
