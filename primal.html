@@ -6,105 +6,98 @@
 <style>
 /* HERO SECTION */
 
-.primal-hero{
-height:80vh;
-background:url("images/primal-banner.jpg") center/cover no-repeat;
-display:flex;
-align-items:center;
-padding-left:80px;
+.primal-container{
+padding:80px 60px;
+background:#020617;
+min-height:100vh;
+}
+
+
+/* TITLE */
+
+.primal-title{
 color:white;
-}
-
-.hero-content h1{
-font-size:70px;
-letter-spacing:4px;
-}
-
-.hero-content p{
-font-size:18px;
-margin-top:10px;
-max-width:500px;
+font-size:42px;
+letter-spacing:3px;
+margin-bottom:40px;
 }
 
 
-/* SEASON TABS */
+/* SEASON BUTTONS */
 
-.season-tabs{
-display:flex;
-justify-content:center;
-margin-top:40px;
-gap:15px;
+.season-switch{
+margin-bottom:30px;
 }
 
-.tab{
-padding:10px 25px;
-background:#111;
+.season-btn{
+background:#0f172a;
 border:none;
-color:white;
+color:#94a3b8;
+padding:10px 20px;
+margin-right:10px;
 cursor:pointer;
-font-size:16px;
-border-radius:5px;
-transition:0.3s;
+border-radius:6px;
+transition:.3s;
 }
 
-.tab:hover{
-background:#ff3c00;
+.season-btn:hover{
+background:#1e293b;
+color:white;
 }
 
-.tab.active{
-background:#ff3c00;
+.season-btn.active{
+background:#38bdf8;
+color:black;
 }
 
 
-/* EPISODE GRID */
+/* EPISODE ROW */
 
-.episode-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-padding:40px;
+.episode-row{
+display:flex;
+gap:20px;
+overflow-x:auto;
+padding-bottom:10px;
 }
 
 
 /* EPISODE CARD */
 
-.episode-card{
-background:#111;
+.episode{
+min-width:220px;
+background:#0f172a;
 border-radius:10px;
 overflow:hidden;
-transition:0.4s;
+transition:.3s;
 cursor:pointer;
 }
 
-.episode-card img{
+.episode img{
 width:100%;
-height:150px;
+height:140px;
 object-fit:cover;
 }
 
-.episode-card h3{
+.episode span{
+display:block;
+padding:10px;
 color:white;
-padding:10px 15px 0;
+font-size:14px;
 }
 
-.episode-card p{
-color:#bbb;
-padding:0 15px 15px;
-}
-
-.episode-card:hover{
-transform:scale(1.08);
-box-shadow:0 10px 25px rgba(0,0,0,0.7);
+.episode:hover{
+transform:scale(1.1);
+box-shadow:0 10px 25px rgba(0,0,0,.7);
 }
 
 
-/* SEASON VISIBILITY */
+/* SEASON SWITCH */
 
-.season-content{
+.season{
 display:none;
 }
 
-.season-content.active{
+.season.active{
 display:block;
 }
 </style>
@@ -112,80 +105,76 @@ display:block;
 
 <body>
 
-<section class="primal-hero">
-    <div class="hero-content">
-        <h1>PRIMAL</h1>
-        <p>An adult animated prehistoric adventure by Genndy Tartakovsky.</p>
-    </div>
-</section>
+<section class="primal-container">
 
-<section class="season-section">
+<h1 class="primal-title">PRIMAL</h1>
 
-<div class="season-tabs">
-<button class="tab active" onclick="showSeason('s1')">Season 1</button>
-<button class="tab" onclick="showSeason('s2')">Season 2</button>
-<button class="tab" onclick="showSeason('s3')">Season 3</button>
+<div class="season-switch">
+<button onclick="showSeason('season1')" class="season-btn active">Season 1</button>
+<button onclick="showSeason('season2')" class="season-btn">Season 2</button>
+<button onclick="showSeason('season3')" class="season-btn">Season 3</button>
 </div>
 
-<!-- Season 1 -->
-<div id="s1" class="season-content active">
 
-<div class="episode-grid">
+<!-- SEASON 1 -->
 
-<div class="episode-card">
+<div id="season1" class="season active">
+
+<div class="episode-row">
+
+<div class="episode">
 <img src="images/ep1.jpg">
-<h3>Episode 1</h3>
-<p>Spear and Fang</p>
+<span>Episode 1</span>
 </div>
 
-<div class="episode-card">
+<div class="episode">
 <img src="images/ep2.jpg">
-<h3>Episode 2</h3>
-<p>River of Snakes</p>
+<span>Episode 2</span>
 </div>
 
-<div class="episode-card">
+<div class="episode">
 <img src="images/ep3.jpg">
-<h3>Episode 3</h3>
-<p>A Cold Death</p>
+<span>Episode 3</span>
+</div>
+
+<div class="episode">
+<img src="images/ep4.jpg">
+<span>Episode 4</span>
 </div>
 
 </div>
-</div>
-
-<!-- Season 2 -->
-<div id="s2" class="season-content">
-
-<div class="episode-grid">
-
-<div class="episode-card">
-<img src="images/ep1s2.jpg">
-<h3>Episode 1</h3>
-<p>Sea of Despair</p>
-</div>
 
 </div>
+
+
+<!-- SEASON 2 -->
+
+<div id="season2" class="season">
+
+<div class="episode-row">
+
+<div class="episode">
+<img src="images/s2ep1.jpg">
+<span>Episode 1</span>
 </div>
 
-<!-- Season 3 -->
-<div id="s3" class="season-content">
-<p style="color:white">Coming Soon</p>
+</div>
+
 </div>
 
 </section>
-
-</div>
 <script>
- function showSeason(season){
+ function showSeason(id){
 
-document.querySelectorAll(".season-content")
-.forEach(sec=>sec.classList.remove("active"));
+document.querySelectorAll(".season")
+.forEach(s=>s.classList.remove("active"));
 
-document.getElementById(season)
+document.getElementById(id)
 .classList.add("active");
 
-document.querySelectorAll(".tab")
-.forEach(tab=>tab.classList.remove("active"));
+
+document.querySelectorAll(".season-btn")
+.forEach(b=>b.classList.remove("active"));
 
 event.target.classList.add("active");
 
