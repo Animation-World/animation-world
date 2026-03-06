@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
 <meta charset="UTF-8">
 <title>Genndy Tartakovsky's Primal | Animation World</title>
 
@@ -9,57 +9,75 @@
 
 body{
 margin:0;
-font-family:'Poppins',sans-serif;
+font-family:Poppins, sans-serif;
 background:#020617;
 color:white;
+}
+
+/* PAGE */
+
+.page{
+max-width:1200px;
+margin:auto;
+padding:60px 40px;
+}
+
+/* HEADER */
+
+.series-header{
+display:flex;
+gap:30px;
+margin-bottom:40px;
+}
+
+.poster{
+width:260px;
+border-radius:10px;
 overflow:hidden;
 }
 
-/* MAIN */
-
-.primal-container{
-height:100vh;
-padding:70px 60px;
-box-sizing:border-box;
-display:flex;
-flex-direction:column;
-max-width:1500px;
-margin:auto;
+.poster img{
+width:100%;
+display:block;
 }
 
-/* SERIES HEADER */
-
-.series-header{
-margin-bottom:25px;
+.series-info{
+flex:1;
 }
 
 .series-title{
-font-size:42px;
-margin-bottom:6px;
+font-size:36px;
+margin-bottom:10px;
 }
 
-.series-meta{
+.meta{
 display:flex;
 gap:15px;
 color:#94a3b8;
-font-size:14px;
-align-items:center;
+margin-bottom:15px;
 }
 
-.imdb{
+.rating{
 background:#facc15;
 color:black;
-padding:4px 10px;
+padding:5px 10px;
 border-radius:6px;
 font-weight:600;
 }
 
-/* SEASON SWITCH */
+/* DESCRIPTION */
 
-.season-switch{
-display:flex;
-gap:10px;
-margin:25px 0;
+.description{
+color:#cbd5e1;
+line-height:1.6;
+max-width:700px;
+}
+
+/* SEASONS */
+
+.season-tabs{
+margin-top:40px;
+margin-bottom:20px;
 }
 
 .season-btn{
@@ -68,14 +86,8 @@ border:none;
 color:#94a3b8;
 padding:10px 18px;
 border-radius:6px;
+margin-right:10px;
 cursor:pointer;
-font-weight:500;
-transition:.3s;
-}
-
-.season-btn:hover{
-background:#1e293b;
-color:white;
 }
 
 .season-btn.active{
@@ -83,7 +95,37 @@ background:#38bdf8;
 color:black;
 }
 
-/* SEASONS */
+/* EPISODES */
+
+.episode-list{
+border-top:1px solid #1e293b;
+}
+
+.episode{
+display:flex;
+gap:20px;
+padding:15px 0;
+border-bottom:1px solid #1e293b;
+align-items:center;
+}
+
+.episode img{
+width:140px;
+height:80px;
+object-fit:cover;
+border-radius:6px;
+}
+
+.ep-info h3{
+margin:0 0 5px 0;
+font-size:16px;
+}
+
+.ep-info p{
+margin:0;
+font-size:13px;
+color:#94a3b8;
+}
 
 .season{
 display:none;
@@ -93,137 +135,49 @@ display:none;
 display:block;
 }
 
-/* EPISODE ROW */
-
-.episode-row{
-display:flex;
-gap:18px;
-overflow-x:auto;
-padding-bottom:10px;
-}
-
-/* SCROLLBAR */
-
-.episode-row::-webkit-scrollbar{
-height:6px;
-}
-
-.episode-row::-webkit-scrollbar-thumb{
-background:#38bdf8;
-border-radius:6px;
-}
-
-/* CARD */
-
-.episode{
-min-width:230px;
-background:#0f172a;
-border-radius:10px;
-overflow:hidden;
-cursor:pointer;
-transition:.3s;
-position:relative;
-}
-
-/* IMAGE */
-
-.episode img{
-width:100%;
-height:140px;
-object-fit:cover;
-display:block;
-}
-
-/* INFO */
-
-.episode-info{
-padding:10px;
-}
-
-.episode-title{
-font-size:14px;
-margin-bottom:4px;
-}
-
-.runtime{
-font-size:12px;
-color:#94a3b8;
-}
-
-/* EP NUMBER */
-
-.ep-number{
-position:absolute;
-top:8px;
-left:8px;
-background:rgba(0,0,0,.7);
-padding:3px 7px;
-font-size:11px;
-border-radius:4px;
-}
-
-/* PLAY BUTTON */
-
-.play-btn{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:rgba(0,0,0,.7);
-border-radius:50%;
-width:50px;
-height:50px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:20px;
-opacity:0;
-transition:.3s;
-}
-
-/* HOVER */
-
-.episode:hover{
-transform:scale(1.08);
-box-shadow:0 15px 35px rgba(0,0,0,.8);
-}
-
-.episode:hover .play-btn{
-opacity:1;
-}
-
 </style>
 </head>
 
-
 <body>
 
-<section class="primal-container">
+<div class="page">
 
 <!-- HEADER -->
 
 <div class="series-header">
 
+<div class="poster">
+<img src="images/primal-poster.jpg">
+</div>
+
+<div class="series-info">
+
 <h1 class="series-title">
 Genndy Tartakovsky's Primal
 </h1>
 
-<div class="series-meta">
+<div class="meta">
 
 <span>2019</span>
 <span>Action</span>
 <span>3 Seasons</span>
+<span class="rating">⭐ 8.7 IMDb</span>
 
-<span class="imdb">⭐ 8.7 IMDb</span>
+</div>
+
+<p class="description">
+
+Primal follows a caveman named Spear and a dinosaur named Fang who form an unlikely friendship while struggling to survive in a brutal prehistoric world filled with danger, predators, and mysterious civilizations.
+
+</p>
 
 </div>
 
 </div>
 
+<!-- SEASON BUTTONS -->
 
-<!-- SEASON SWITCH -->
-
-<div class="season-switch">
+<div class="season-tabs">
 
 <button class="season-btn active"
 onclick="showSeason('s1',this)">Season 1</button>
@@ -236,103 +190,72 @@ onclick="showSeason('s3',this)">Season 3</button>
 
 </div>
 
-
 <!-- SEASON 1 -->
 
 <div id="s1" class="season active">
 
-<div class="episode-row">
+<div class="episode-list">
 
 <div class="episode">
-<span class="ep-number">EP1</span>
-<img src="images/primal1.jpg">
-<div class="play-btn">▶</div>
-
-<div class="episode-info">
-<div class="episode-title">Spear and Fang</div>
-<div class="runtime">22 min</div>
+<img src="images/ep1.jpg">
+<div class="ep-info">
+<h3>Episode 1 — Spear and Fang</h3>
+<p>Spear loses his family and meets Fang in a brutal prehistoric world.</p>
 </div>
 </div>
-
 
 <div class="episode">
-<span class="ep-number">EP2</span>
-<img src="images/primal2.jpg">
-<div class="play-btn">▶</div>
-
-<div class="episode-info">
-<div class="episode-title">River of Snakes</div>
-<div class="runtime">22 min</div>
+<img src="images/ep2.jpg">
+<div class="ep-info">
+<h3>Episode 2 — River of Snakes</h3>
+<p>Spear and Fang face a deadly river filled with snakes.</p>
 </div>
 </div>
-
 
 <div class="episode">
-<span class="ep-number">EP3</span>
-<img src="images/primal3.jpg">
-<div class="play-btn">▶</div>
-
-<div class="episode-info">
-<div class="episode-title">A Cold Death</div>
-<div class="runtime">22 min</div>
-</div>
-</div>
-
-
-<div class="episode">
-<span class="ep-number">EP4</span>
-<img src="images/primal4.jpg">
-<div class="play-btn">▶</div>
-
-<div class="episode-info">
-<div class="episode-title">Terror Under the Blood Moon</div>
-<div class="runtime">22 min</div>
+<img src="images/ep3.jpg">
+<div class="ep-info">
+<h3>Episode 3 — A Cold Death</h3>
+<p>A harsh winter pushes them to their limits.</p>
 </div>
 </div>
 
 </div>
-</div>
 
+</div>
 
 
 <!-- SEASON 2 -->
 
 <div id="s2" class="season">
 
-<div class="episode-row">
+<div class="episode-list">
 
 <div class="episode">
-<span class="ep-number">EP1</span>
-<img src="images/s2-1.jpg">
-<div class="play-btn">▶</div>
-
-<div class="episode-info">
-<div class="episode-title">Sea of Despair</div>
-<div class="runtime">23 min</div>
+<img src="images/s2ep1.jpg">
+<div class="ep-info">
+<h3>Episode 1 — Sea of Despair</h3>
+<p>Spear and Fang begin a new journey across dangerous seas.</p>
+</div>
 </div>
 
 </div>
 
 </div>
-
-</div>
-
 
 
 <!-- SEASON 3 -->
 
 <div id="s3" class="season">
 
-<div class="episode-row">
+<div class="episode-list">
 
 <div class="episode">
-<span class="ep-number">EP1</span>
 <img src="images/primal-s3.jpg">
-<div class="play-btn">▶</div>
-
-<div class="episode-info">
-<div class="episode-title">Coming Soon</div>
-<div class="runtime">TBA</div>
+<div class="ep-info">
+<h3>Season 3 Coming Soon</h3>
+<p>New prehistoric adventures expected soon.</p>
+</div>
 </div>
 
 </div>
@@ -340,8 +263,6 @@ onclick="showSeason('s3',this)">Season 3</button>
 </div>
 
 </div>
-
-</section>
 
 
 <script>
