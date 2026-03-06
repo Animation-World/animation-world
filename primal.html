@@ -14,12 +14,18 @@ margin:0;
 font-family:Arial, Helvetica, sans-serif;
 background:#020617;
 color:white;
+overflow:hidden; /* PREVENT PAGE SCROLL */
 }
 
 /* MAIN CONTAINER */
 
 .primal-container{
-padding:120px 60px;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:flex-start;
+padding:80px 60px 30px 60px;
+box-sizing:border-box;
 max-width:1400px;
 margin:auto;
 }
@@ -27,20 +33,19 @@ margin:auto;
 /* SERIES TITLE */
 
 .series-title{
-font-size:42px;
-font-weight:700;
-margin-bottom:10px;
+font-size:36px;
+margin-bottom:8px;
 }
 
-/* SERIES META INFO */
+/* SERIES META */
 
 .series-meta{
 display:flex;
 gap:20px;
 align-items:center;
 color:#94a3b8;
-margin-bottom:40px;
-font-size:15px;
+margin-bottom:25px;
+font-size:14px;
 }
 
 .rating{
@@ -54,14 +59,14 @@ font-weight:600;
 /* SEASON BUTTONS */
 
 .season-switch{
-margin-bottom:30px;
+margin-bottom:20px;
 }
 
 .season-btn{
 background:#0f172a;
 border:none;
 color:#94a3b8;
-padding:10px 20px;
+padding:8px 16px;
 margin-right:10px;
 cursor:pointer;
 border-radius:6px;
@@ -79,29 +84,31 @@ background:#38bdf8;
 color:black;
 }
 
-/* SEASON */
+/* SEASONS */
 
 .season{
 display:none;
+flex:1;
 }
 
 .season.active{
-display:block;
+display:flex;
 }
 
 /* EPISODE GRID */
 
 .episode-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
+width:100%;
 }
 
 /* EPISODE CARD */
 
 .episode{
 background:#0f172a;
-border-radius:10px;
+border-radius:8px;
 overflow:hidden;
 transition:.3s;
 cursor:pointer;
@@ -111,17 +118,17 @@ cursor:pointer;
 
 .episode img{
 width:100%;
-height:140px;
+height:110px;
 object-fit:cover;
 display:block;
 }
 
-/* TEXT */
+/* TITLE */
 
 .episode span{
 display:block;
-padding:12px;
-font-size:14px;
+padding:8px 10px;
+font-size:13px;
 }
 
 /* HOVER */
@@ -134,13 +141,9 @@ box-shadow:0 10px 25px rgba(0,0,0,.6);
 </style>
 </head>
 
-
 <body>
 
-
 <section class="primal-container">
-
-<!-- SERIES INFO -->
 
 <h1 class="series-title">Genndy Tartakovsky's Primal</h1>
 
@@ -151,8 +154,6 @@ box-shadow:0 10px 25px rgba(0,0,0,.6);
 <span class="rating">⭐ 8.7 IMDb</span>
 </div>
 
-
-<!-- SEASON BUTTONS -->
 
 <div class="season-switch">
 
@@ -198,17 +199,27 @@ Season 3
 
 <div class="episode">
 <img src="images/primal-s1-ep4.jpg">
-<span>Episode 4 – Terror Under the Blood Moon</span>
+<span>Episode 4 – Blood Moon</span>
 </div>
 
 <div class="episode">
 <img src="images/primal-s1-ep5.jpg">
-<span>Episode 5 – Rage of the Ape-Men</span>
+<span>Episode 5 – Ape-Men</span>
 </div>
 
 <div class="episode">
 <img src="images/primal-s1-ep6.jpg">
 <span>Episode 6 – Scent of Prey</span>
+</div>
+
+<div class="episode">
+<img src="images/primal-s1-ep7.jpg">
+<span>Episode 7 – Plague</span>
+</div>
+
+<div class="episode">
+<img src="images/primal-s1-ep8.jpg">
+<span>Episode 8 – Coven of the Damned</span>
 </div>
 
 </div>
@@ -225,17 +236,17 @@ Season 3
 
 <div class="episode">
 <img src="images/primal-s2-ep1.jpg">
-<span>Episode 1 – Sea of Despair</span>
+<span>Episode 1</span>
 </div>
 
 <div class="episode">
 <img src="images/primal-s2-ep2.jpg">
-<span>Episode 2 – Shadow of Fate</span>
+<span>Episode 2</span>
 </div>
 
 <div class="episode">
 <img src="images/primal-s2-ep3.jpg">
-<span>Episode 3 – Dawn of Battle</span>
+<span>Episode 3</span>
 </div>
 
 </div>
@@ -252,13 +263,12 @@ Season 3
 
 <div class="episode">
 <img src="images/primal-s3-ep1.jpg">
-<span>Episode 1 – Coming Soon</span>
+<span>Coming Soon</span>
 </div>
 
 </div>
 
 </div>
-
 
 </section>
 
@@ -281,7 +291,6 @@ btn.classList.add("active");
 }
 
 </script>
-
 
 </body>
 </html>
