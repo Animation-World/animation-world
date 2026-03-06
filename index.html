@@ -113,7 +113,7 @@ font-weight:500;
 .featured{
 margin-top:0;
 padding:60px 60px 60px 60px;  /* equal to navbar height */
-height:520px;
+height:420px;
 position:relative;
 display:flex;
 align-items:center;
@@ -217,6 +217,28 @@ padding:50px 20px 20px;
 color:#cbd5e1;
 }
 
+.category-grid{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+margin-bottom:30px;
+}
+
+.category-grid a{
+background:#1e293b;
+padding:12px 18px;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:.3s;
+}
+
+.category-grid a:hover{
+background:#38bdf8;
+color:black;
+}
+  
 /* ⭐ FIX: stop overflow under title */
 .container{
 max-width:1100px;
@@ -396,9 +418,11 @@ font-size:14px;
 </div>
 <nav class="menu">
 <a href="index.html">Home</a>
-<a href="tvseries.html">TV Series</a>
+<a href="episodes.html">Episode Guides</a>
+<a href="trailers.html">Trailers</a>
 <a href="news.html">News</a>
 <a href="about.html">About</a>
+<a href="contact.html">Contact</a>
 </nav>
 </header>
 
@@ -410,17 +434,27 @@ font-size:14px;
  </div>
 </section>
 <div class="banner-timeline" id="bannerTimeline"></div>
+  
 <section class="hero">
-<p>Latest animation news, anime updates, and animated series guides.</p>
+<h2>Welcome to Animation World</h2>
+<p>Your hub for animation news, episode guides, trailers, and series updates.</p>
 </section>
+<div class="container">
+<h2 class="section-title">Browse Categories</h2>
 
+<div class="category-grid">
+<a href="episodes.html">Episode Guides</a>
+<a href="trailers.html">Trailers</a>
+<a href="news.html">Animation News</a>
+<a href="anime.html">Anime</a>
+<a href="upcoming.html">Upcoming Releases</a>
+</div>
+</div>
+  
 <div class="container">
 <h2 class="section-title">🔥 Trending TV Series</h2>
-
 <div class="carousel">
-
 <button class="nav-btn left" id="prevBtn">❮</button>
-
 <div class="series-grid" id="seriesGrid">
 
 <div class="series-card">
@@ -488,18 +522,31 @@ font-size:14px;
   <p>Global streaming platforms boost anime popularity worldwide.</p>
  </div>
 </div> 
+
+<div class="container">
+<h2 class="section-title">🎬 Latest Trailers</h2>
+<iframe width="100%" height="400"
+src="https://www.youtube.com/embed/VIDEOID"
+title="YouTube video player"
+frameborder="0"
+allowfullscreen></iframe>
+</div>
   
 <footer>
-© 2026 Animation World — Your Universe of Animation
+<p><strong>Animation World</strong></p>
+<p>
+Latest animation news, episode guides, trailers, and series updates.
+</p>
+<p>
+Follow us on 
+<a href="https://facebook.com" target="_blank">Facebook</a>
+</p>
+<p>© 2026 Animation World — All rights reserved</p>
 </footer>
 
-
-
+  
 <script>
-
-
 /* ===== FEATURED AUTO BANNER ===== */
-
 const featuredData=[
 {
 title:"Primal",
