@@ -3,9 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Primal Season 1 Episode 1 – Spear and Fang | Animation World</title>
+<title>Primal Season 1 Episode 1 | Animation World</title>
 
 <style>
 
@@ -19,7 +17,7 @@ color:white;
 /* PAGE */
 
 .page{
-max-width:1200px;
+max-width:1100px;
 margin:auto;
 padding:60px 40px;
 }
@@ -36,72 +34,88 @@ font-size:14px;
 text-decoration:underline;
 }
 
-/* EPISODE HEADER */
+/* HEADER */
 
 .episode-header{
-display:flex;
-gap:40px;
-margin-top:30px;
-flex-wrap:wrap;
-}
-
-.episode-poster{
-width:320px;
-border-radius:10px;
-overflow:hidden;
-}
-
-.episode-poster img{
-width:100%;
-display:block;
-}
-
-.episode-info{
-flex:1;
-max-width:700px;
+margin-top:20px;
+margin-bottom:30px;
 }
 
 .episode-title{
-font-size:36px;
+font-size:34px;
 margin-bottom:10px;
 }
 
 .meta{
-display:flex;
-gap:20px;
 color:#94a3b8;
 font-size:14px;
-margin-bottom:15px;
+display:flex;
+gap:20px;
 }
 
-.rating{
-background:#facc15;
-color:black;
-padding:5px 10px;
-border-radius:6px;
-font-weight:600;
+/* IMAGE */
+
+.episode-image{
+margin:30px 0;
 }
+
+.episode-image img{
+width:100%;
+border-radius:10px;
+}
+
+/* DESCRIPTION */
 
 .description{
+max-width:800px;
+line-height:1.7;
 color:#cbd5e1;
-line-height:1.6;
-margin-top:15px;
+font-size:16px;
 }
 
-/* INFO BOX */
+/* RATING */
 
-.info-box{
-margin-top:25px;
+.rating-box{
+margin-top:30px;
 background:#0f172a;
 padding:20px;
 border-radius:10px;
 max-width:500px;
 }
 
+.rating-number{
+font-size:28px;
+font-weight:bold;
+}
+
+.rating-bar{
+height:8px;
+background:#1e293b;
+border-radius:5px;
+margin-top:8px;
+overflow:hidden;
+}
+
+.rating-fill{
+height:100%;
+width:87%;
+background:#facc15;
+}
+
+/* INFO BOX */
+
+.info-box{
+margin-top:40px;
+background:#0f172a;
+padding:20px;
+border-radius:10px;
+max-width:600px;
+}
+
 .info-row{
 display:flex;
 justify-content:space-between;
-padding:10px 0;
+padding:8px 0;
 border-bottom:1px solid #1e293b;
 }
 
@@ -113,74 +127,64 @@ border-bottom:none;
 color:#94a3b8;
 }
 
-/* NAVIGATION */
+/* SECTION */
 
-.episode-nav{
-display:flex;
-justify-content:space-between;
-margin-top:40px;
+.section{
+margin-top:50px;
 }
 
-.nav-btn{
-background:#38bdf8;
-color:black;
-padding:10px 18px;
-border-radius:8px;
-text-decoration:none;
-font-weight:600;
-}
-
-.nav-btn:hover{
-background:white;
-}
-
-/* RELATED EPISODES */
-
-.related{
-margin-top:60px;
-}
-
-.related h2{
+.section h2{
 margin-bottom:20px;
+font-size:24px;
 }
 
-.related-grid{
-display:flex;
+/* CARD GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
 gap:20px;
-flex-wrap:wrap;
 }
 
-.related-card{
-width:200px;
+/* CARD */
+
+.card{
 background:#0f172a;
+padding:15px;
 border-radius:10px;
-overflow:hidden;
-text-decoration:none;
-color:white;
-transition:.3s;
+text-align:center;
 }
 
-.related-card img{
+.card img{
 width:100%;
-height:120px;
-object-fit:cover;
+border-radius:8px;
+margin-bottom:10px;
 }
 
-.related-card span{
-display:block;
-padding:10px;
+.card-title{
 font-size:14px;
+font-weight:bold;
 }
 
-.related-card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,.7);
+.card-sub{
+font-size:12px;
+color:#94a3b8;
+}
+
+/* AWARDS */
+
+.award{
+background:#0f172a;
+padding:15px;
+border-radius:8px;
+margin-bottom:10px;
+color:#cbd5e1;
 }
 
 /* FOOTER */
 
 footer{
-margin-top:80px;
+margin-top:60px;
 padding:25px;
 text-align:center;
 border-top:1px solid #1e293b;
@@ -189,7 +193,6 @@ font-size:14px;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -198,15 +201,7 @@ font-size:14px;
 
 <a class="back" href="primal.html">← Back to Primal</a>
 
-<!-- HEADER -->
-
 <div class="episode-header">
-
-<div class="episode-poster">
-<img src="images/ep1.jpg" alt="Primal Episode 1">
-</div>
-
-<div class="episode-info">
 
 <h1 class="episode-title">
 Primal — Season 1 Episode 1  
@@ -216,14 +211,36 @@ Primal — Season 1 Episode 1
 <div class="meta">
 <span>2019</span>
 <span>22 min</span>
-<span class="rating">⭐ 8.7</span>
+<span>TV-MA</span>
+</div>
+
+</div>
+
+<div class="episode-image">
+
+<img src="images/ep1.jpg" alt="Primal Episode 1">
+
 </div>
 
 <p class="description">
 
-After losing his family in a brutal dinosaur attack, a caveman named Spear struggles to survive alone in a dangerous prehistoric world. Fate brings him together with Fang, a fierce dinosaur who has also suffered loss. The two form an unlikely bond while facing deadly predators and harsh environments.
+After losing his family in a brutal dinosaur attack, a caveman named Spear struggles to survive alone in a dangerous prehistoric world. Fate brings him together with Fang, a fierce dinosaur who has also suffered loss. The two form an unlikely bond as they face deadly predators and harsh environments.
 
 </p>
+
+<!-- RATING -->
+
+<div class="rating-box">
+
+<div class="rating-number">⭐ 8.7 / 10</div>
+
+<div class="rating-bar">
+<div class="rating-fill"></div>
+</div>
+
+</div>
+
+<!-- INFO -->
 
 <div class="info-box">
 
@@ -252,45 +269,67 @@ After losing his family in a brutal dinosaur attack, a caveman named Spear strug
 <b>Action, Adventure</b>
 </div>
 
+<div class="info-row">
+<span>Network</span>
+<b>Adult Swim</b>
+</div>
+
+</div>
+
+<!-- CREATOR -->
+
+<div class="section">
+
+<h2>Creator</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="images/creator.jpg">
+<div class="card-title">Genndy Tartakovsky</div>
+<div class="card-sub">Creator / Director</div>
 </div>
 
 </div>
 
 </div>
 
-<!-- NAVIGATION -->
+<!-- CAST -->
 
-<div class="episode-nav">
+<div class="section">
 
-<a class="nav-btn" href="#">← Previous Episode</a>
+<h2>Cast</h2>
 
-<a class="nav-btn" href="primal-s1-episode2.html">Next Episode →</a>
+<div class="grid">
+
+<div class="card">
+<img src="images/spear.jpg">
+<div class="card-title">Aaron LaPlante</div>
+<div class="card-sub">Spear</div>
+</div>
+
+<div class="card">
+<img src="images/fang.jpg">
+<div class="card-title">Fang</div>
+<div class="card-sub">Dinosaur</div>
+</div>
 
 </div>
 
-<!-- RELATED -->
+</div>
 
-<div class="related">
+<!-- AWARDS -->
 
-<h2>More Episodes</h2>
+<div class="section">
 
-<div class="related-grid">
+<h2>Awards</h2>
 
-<a href="primal-s1-episode2.html" class="related-card">
-<img src="images/ep2.jpg">
-<span>Episode 2 – River of Snakes</span>
-</a>
+<div class="award">
+🏆 Emmy Award — Outstanding Animated Program
+</div>
 
-<a href="primal-s1-episode3.html" class="related-card">
-<img src="images/ep3.jpg">
-<span>Episode 3 – A Cold Death</span>
-</a>
-
-<a href="primal-s1-episode4.html" class="related-card">
-<img src="images/ep4.jpg">
-<span>Episode 4 – Terror Under the Blood Moon</span>
-</a>
-
+<div class="award">
+🏆 Annie Award — Best Animated Television Production
 </div>
 
 </div>
