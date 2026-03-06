@@ -175,6 +175,22 @@ display:block;
 </section>
 
 </div>
+<script>
+ function showSeason(season){
+
+document.querySelectorAll(".season-content")
+.forEach(sec=>sec.classList.remove("active"));
+
+document.getElementById(season)
+.classList.add("active");
+
+document.querySelectorAll(".tab")
+.forEach(tab=>tab.classList.remove("active"));
+
+event.target.classList.add("active");
+
+}
+</script>
 
 </body>
 </html>
