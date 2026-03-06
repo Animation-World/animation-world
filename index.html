@@ -250,7 +250,21 @@ overflow:hidden;
 
 .section-title{
 font-size:24px;
-margin-bottom:15px;
+margin:40px 0 20px 30px;
+position:relative;
+padding-left:15px;
+}
+
+.section-title::before{
+content:"";
+position:absolute;
+left:0;
+top:6px;
+width:4px;
+height:22px;
+background:#38bdf8;
+border-radius:3px;
+box-shadow:0 0 8px rgba(56,189,248,.6);
 }
 
 /* ===== CAROUSEL ===== */
@@ -369,28 +383,11 @@ color:black;
 background:#1e293b;
 padding:20px;
 border-radius:12px;
-margin:20px 40px;
+margin:20px 60px;
 transition:.3s;
 cursor:pointer;
 }
-.section-title{
-font-size:24px;
-margin:40px 0 20px 30px;
-position:relative;
-padding-left:15px;
-}
 
-.section-title::before{
-content:"";
-position:absolute;
-left:0;
-top:6px;
-width:4px;
-height:22px;
-background:#38bdf8;
-border-radius:3px;
-box-shadow:0 0 8px rgba(56,189,248,.6);
-}
 .news-card:hover{
 transform:translateY(-5px);
 box-shadow:0 0 20px rgba(56,189,248,0.25);
