@@ -107,6 +107,14 @@ gap:20px;
 padding:15px 0;
 border-bottom:1px solid #1e293b;
 align-items:center;
+text-decoration:none;
+color:white;
+transition:.3s;
+}
+
+.episode:hover{
+background:#0f172a;
+transform:translateX(6px);
 }
 
 .episode img{
@@ -133,6 +141,35 @@ display:none;
 
 .season.active{
 display:block;
+}
+
+/* EXTRA INFO */
+
+.series-extra{
+margin-top:60px;
+border-top:1px solid #1e293b;
+padding-top:30px;
+}
+
+.series-extra h2{
+margin-bottom:15px;
+}
+
+.series-extra p{
+color:#cbd5e1;
+line-height:1.6;
+max-width:800px;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:60px;
+padding:25px;
+text-align:center;
+border-top:1px solid #1e293b;
+color:#94a3b8;
+font-size:14px;
 }
 
 </style>
@@ -167,7 +204,7 @@ Genndy Tartakovsky's Primal
 
 <p class="description">
 
-Primal follows a caveman named Spear and a dinosaur named Fang who form an unlikely friendship while struggling to survive in a brutal prehistoric world filled with danger, predators, and mysterious civilizations.
+Primal follows a caveman named Spear and a dinosaur named Fang who form an unlikely friendship while struggling to survive in a brutal prehistoric world.
 
 </p>
 
@@ -196,74 +233,95 @@ onclick="showSeason('s3',this)">Season 3</button>
 
 <div class="episode-list">
 
-<div class="episode">
+<a class="episode" href="primal-s1-ep1.html">
 <img src="images/ep1.jpg">
 <div class="ep-info">
 <h3>Episode 1 — Spear and Fang</h3>
-<p>Spear loses his family and meets Fang in a brutal prehistoric world.</p>
+<p>Spear loses his family and meets Fang.</p>
 </div>
-</div>
+</a>
 
-<div class="episode">
+<a class="episode" href="#">
 <img src="images/ep2.jpg">
 <div class="ep-info">
 <h3>Episode 2 — River of Snakes</h3>
-<p>Spear and Fang face a deadly river filled with snakes.</p>
+<p>Deadly snakes attack in the river.</p>
 </div>
-</div>
+</a>
 
-<div class="episode">
+<a class="episode" href="#">
 <img src="images/ep3.jpg">
 <div class="ep-info">
 <h3>Episode 3 — A Cold Death</h3>
-<p>A harsh winter pushes them to their limits.</p>
+<p>Winter threatens survival.</p>
 </div>
-</div>
+</a>
 
-</div>
-
-</div>
-
-
-<!-- SEASON 2 -->
-
-<div id="s2" class="season">
-
-<div class="episode-list">
-
-<div class="episode">
-<img src="images/s2ep1.jpg">
+<a class="episode" href="#">
+<img src="images/ep4.jpg">
 <div class="ep-info">
-<h3>Episode 1 — Sea of Despair</h3>
-<p>Spear and Fang begin a new journey across dangerous seas.</p>
+<h3>Episode 4 — Terror Under the Blood Moon</h3>
+<p>A terrifying night predator appears.</p>
 </div>
-</div>
+</a>
 
-</div>
-
-</div>
-
-
-<!-- SEASON 3 -->
-
-<div id="s3" class="season">
-
-<div class="episode-list">
-
-<div class="episode">
-<img src="images/primal-s3.jpg">
+<a class="episode" href="#">
+<img src="images/ep5.jpg">
 <div class="ep-info">
-<h3>Season 3 Coming Soon</h3>
-<p>New prehistoric adventures expected soon.</p>
+<h3>Episode 5 — Rage of the Ape-Men</h3>
+<p>Ape warriors capture Fang.</p>
+</div>
+</a>
+
+<a class="episode" href="#">
+<img src="images/ep6.jpg">
+<div class="ep-info">
+<h3>Episode 6 — Scent of Prey</h3>
+<p>A new dangerous predator hunts.</p>
+</div>
+</a>
+
+<a class="episode" href="#">
+<img src="images/ep7.jpg">
+<div class="ep-info">
+<h3>Episode 7 — Plague of Madness</h3>
+<p>A deadly disease spreads.</p>
+</div>
+</a>
+
+<a class="episode" href="#">
+<img src="images/ep8.jpg">
+<div class="ep-info">
+<h3>Episode 8 — Coven of the Damned</h3>
+<p>Dark magic enters the prehistoric world.</p>
+</div>
+</a>
+
 </div>
 </div>
+
+<!-- EXTRA INFO -->
+
+<div class="series-extra">
+
+<h2>About the Series</h2>
+
+<p>
+
+<em>Primal</em> was created by legendary animator Genndy Tartakovsky, known for his cinematic storytelling and minimal dialogue style. The series focuses on visual storytelling, emotional survival themes, and brutal prehistoric action.
+
+</p>
 
 </div>
 
 </div>
 
-</div>
+<footer>
 
+© 2026 Animation World  
+Your universe of animation series guides.
+
+</footer>
 
 <script>
 
