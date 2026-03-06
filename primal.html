@@ -160,7 +160,33 @@ color:#cbd5e1;
 line-height:1.6;
 max-width:800px;
 }
+/* GALLERY */
 
+.gallery{
+margin-top:70px;
+}
+
+.gallery h2{
+font-size:24px;
+margin-bottom:20px;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+gap:15px;
+}
+
+.gallery-grid img{
+width:100%;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+}
 /* FOOTER */
 
 footer{
@@ -315,7 +341,28 @@ onclick="showSeason('s3',this)">Season 3</button>
 </div>
 
 </div>
+<!-- EPISODE IMAGE GALLERY -->
 
+<section class="gallery">
+
+<h2>Episode Gallery</h2>
+
+<div class="gallery-grid">
+
+<img src="images/primal/ep1.jpg" alt="Primal Episode 1">
+<img src="images/primal/ep2.jpg" alt="Primal Episode 2">
+<img src="images/primal/ep3.jpg" alt="Primal Episode 3">
+<img src="images/primal/ep4.jpg" alt="Primal Episode 4">
+<img src="images/primal/ep5.jpg" alt="Primal Episode 5">
+<img src="images/primal/ep6.jpg" alt="Primal Episode 6">
+<img src="images/primal/ep7.jpg" alt="Primal Episode 7">
+<img src="images/primal/ep8.jpg" alt="Primal Episode 8">
+<img src="images/primal/ep9.jpg" alt="Primal Episode 9">
+<img src="images/primal/ep10.jpg" alt="Primal Episode 10">
+
+</div>
+
+</section>
 <footer>
 
 © 2026 Animation World  
