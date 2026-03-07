@@ -99,32 +99,73 @@ margin-top:10px;
 width:100%;
 }
 
-/* menu button position */
-.menu-toggle{
-order:2;
-margin-left:auto;
-font-size:28px;
-}
-
 /* menu dropdown */
 .menu{
 order:4;
 width:100%;
-display:none;
 flex-direction:column;
-gap:0;
+display:flex;
+align-items:center;
+gap:7px;  
 }
 
 .menu a{
 padding:12px 20px;
 border-top:1px solid #1e293b;
+text-decoration:none;
+color:white;
+font-weight:500;
+padding:8px 14px;
+border-radius:6px;
+transition:.3s;  
+}
+
+.menu.active{
+display:flex;
+}
+.menu a:hover{
+background:#38bdf8;
+color:black;
+}
+@media (max-width:768px){
+
+.menu{
+display:none;
+flex-direction:column;
+background:#020617;
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+padding:20px 0;
 }
 
 .menu.active{
 display:flex;
 }
 
+} 
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
 }
+
+@media (max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+}
+}
+/* menu button position */
+.menu-toggle{
+order:2;
+margin-left:auto;
+font-size:28px;
+}
+  
 .navbar.scrolled .logo {
   color: #38bdf8;
   text-shadow: 0 0 10px rgba(56, 189, 248, .6);
@@ -215,55 +256,6 @@ transition:.3s ease;
 }
 
 .logo:hover span{
-
-}
-.menu{
-display:flex;
-align-items:center;
-gap:7px;
-}
-.menu a{
-text-decoration:none;
-color:white;
-font-weight:500;
-padding:8px 14px;
-border-radius:6px;
-transition:.3s;
-}
-
-.menu a:hover{
-background:#38bdf8;
-color:black;
-}
-@media (max-width:768px){
-
-.menu{
-display:none;
-flex-direction:column;
-background:#020617;
-position:absolute;
-top:70px;
-left:0;
-width:100%;
-padding:20px 0;
-}
-
-.menu.active{
-display:flex;
-}
-
-} 
-.menu-toggle{
-display:none;
-font-size:26px;
-cursor:pointer;
-}
-
-@media (max-width:768px){
-
-.menu-toggle{
-display:block;
-}
 
 }
   
@@ -380,7 +372,38 @@ height:220px;
 }
 
 }
+@media (max-width:768px){
 
+.featured{
+height:240px;
+padding:25px 20px;
+}
+
+.featured h1{
+font-size:26px;
+margin-bottom:8px;
+}
+
+.featured p{
+font-size:13px;
+}
+
+.featured-btn{
+padding:7px 14px;
+font-size:13px;
+margin-top:10px;
+}
+
+.banner-timeline{
+margin-top:-35px;
+}
+
+.banner-thumb{
+width:95px;
+height:55px;
+}
+
+}
   
 /* HERO */
 .hero{
