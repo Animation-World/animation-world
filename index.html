@@ -240,10 +240,11 @@ margin-top:40px;
 
 <body>
 
+<!-- NAVBAR -->
 <header class="navbar">
 
 <div class="logo">
-<img src="images/logo.jpeg">
+<img src="images/logo.jpeg" alt="Animation World Logo">
 <span>Animation World</span>
 </div>
 
@@ -257,29 +258,58 @@ margin-top:40px;
 
 </header>
 
+
+<!-- FEATURED BANNER -->
 <section class="featured" id="featuredBanner">
-<div>
+
+<div class="featured-content">
 <h1 id="bannerTitle">Primal</h1>
-<p id="bannerDesc">A brutal prehistoric survival story of Spear and Fang.</p>
-<a id="bannerLink" class="featured-btn">Explore Series</a>
+
+<p id="bannerDesc">
+A brutal prehistoric survival story of Spear and Fang.
+</p>
+
+<a id="bannerLink" href="primal.html" class="featured-btn">
+Explore Series
+</a>
+
 </div>
+
 </section>
 
 <div class="banner-timeline" id="bannerTimeline"></div>
 
+
+<!-- HERO -->
+<section class="hero">
+
+<h2>Welcome to Animation World</h2>
+
+<p>
+Your hub for animation news, episode guides, trailers, and series updates.
+</p>
+
+</section>
+
+
+<!-- BROWSE CATEGORIES -->
 <div class="container">
 
 <h2 class="section-title">Browse Categories</h2>
 
 <div class="category-grid">
+
 <a href="episodes.html">Episode Guides & Trailers</a>
 <a href="news.html">Animation News</a>
 <a href="anime.html">Anime</a>
 <a href="upcoming.html">Upcoming Releases</a>
-</div>
 
 </div>
 
+</div>
+
+
+<!-- TRENDING SERIES -->
 <div class="container">
 
 <h2 class="section-title">🔥 Trending TV Series</h2>
@@ -291,38 +321,47 @@ margin-top:40px;
 <div class="series-grid" id="seriesGrid">
 
 <div class="series-card">
-<img src="images/primal.jpg">
+<img src="images/primal.jpg" alt="Primal Series">
 <div class="card-content">
-<h3>Primal</h3>
-<p>Prehistoric survival story.</p>
+<h3>Primal <span class="badge">🔥 Trending</span></h3>
+<p>Prehistoric survival story following Spear and Fang.</p>
 <a class="button" href="primal.html">Open</a>
 </div>
 </div>
 
 <div class="series-card">
-<img src="images/arcane.webp">
+<img src="images/arcane.webp" alt="Arcane Series">
 <div class="card-content">
 <h3>Arcane</h3>
-<p>League of Legends animated masterpiece.</p>
-<a class="button">Open</a>
+<p>League of Legends universe with emotional storytelling.</p>
+<a class="button" href="#">Open</a>
 </div>
 </div>
 
 <div class="series-card">
-<img src="images/invincible.jpg">
+<img src="images/love-death-robots.jpg" alt="Love Death Robots">
+<div class="card-content">
+<h3>Love, Death & Robots</h3>
+<p>Sci-fi animated anthology exploring futuristic stories.</p>
+<a class="button" href="#">Open</a>
+</div>
+</div>
+
+<div class="series-card">
+<img src="images/invincible.jpg" alt="Invincible Series">
 <div class="card-content">
 <h3>Invincible</h3>
-<p>Adult superhero animation.</p>
-<a class="button">Open</a>
+<p>Adult superhero animated series with intense action.</p>
+<a class="button" href="#">Open</a>
 </div>
 </div>
 
 <div class="series-card">
-<img src="images/blueeye.webp">
+<img src="images/blueeye.webp" alt="Blue Eye Samurai">
 <div class="card-content">
 <h3>Blue Eye Samurai</h3>
-<p>Revenge journey.</p>
-<a class="button">Open</a>
+<p>A warrior's revenge journey.</p>
+<a class="button" href="#">Open</a>
 </div>
 </div>
 
@@ -334,15 +373,176 @@ margin-top:40px;
 
 </div>
 
+
+<!-- LATEST NEWS -->
+<div class="container">
+
+<h2 class="section-title">📰 Latest News</h2>
+
+<div class="news-card">
+<h3>Arcane Season 2 Release Update</h3>
+<p>New teaser reveals darker tone and deeper conflict in Piltover and Zaun.</p>
+</div>
+
+<div class="news-card">
+<h3>Primal Wins Animation Award</h3>
+<p>The brutal prehistoric series receives international recognition.</p>
+</div>
+
+<div class="news-card">
+<h3>Anime Industry Growth 2026</h3>
+<p>Global streaming platforms boost anime popularity worldwide.</p>
+</div>
+
+</div>
+
+
+<!-- TRAILER -->
+<div class="container">
+
+<h2 class="section-title">🎬 Latest Trailers</h2>
+
+<iframe width="100%" height="400"
+src="https://www.youtube.com/embed/VIDEOID"
+title="YouTube video player"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+</div>
+
+
+<!-- FOOTER -->
 <footer>
 
 <p><strong>Animation World</strong></p>
-<p>Latest animation news, episode guides, trailers and updates.</p>
-<p>© 2026 Animation World</p>
+
+<p>
+Latest animation news, episode guides, trailers, and series updates.
+</p>
+
+<p>
+Follow us on
+<a href="https://facebook.com" target="_blank">Facebook</a>
+</p>
+
+<p>© 2026 Animation World — All rights reserved</p>
 
 </footer>
 
+
+<!-- JAVASCRIPT -->
 <script>
+
+/* FEATURED BANNER */
+
+const featuredData=[
+{
+title:"Primal",
+desc:"A brutal prehistoric survival story of Spear and Fang.",
+img:"images/primal-banner.jpg",
+thumb:"images/primal.jpg",
+link:"primal.html"
+},
+
+{
+title:"Arcane",
+desc:"League of Legends animated masterpiece.",
+img:"images/arcane-banner.jpg",
+thumb:"images/arcane.webp",
+link:"#"
+},
+
+{
+title:"Love, Death & Robots",
+desc:"Sci-fi anthology series.",
+img:"images/love-death-banner.jpg",
+thumb:"images/love-death-robots.jpg",
+link:"#"
+},
+
+{
+title:"Invincible",
+desc:"Adult superhero animation.",
+img:"images/invincible-banner.jpg",
+thumb:"images/invincible.jpg",
+link:"#"
+},
+
+{
+title:"Blue Eye Samurai",
+desc:"A warrior's revenge journey.",
+img:"images/blue-eye-samurai-banner.jpg",
+thumb:"images/blueeye.webp",
+link:"#"
+}
+
+];
+
+
+let currentFeature=0;
+
+const featuredSection=document.getElementById("featuredBanner");
+const timeline=document.getElementById("bannerTimeline");
+const bannerTitle=document.getElementById("bannerTitle");
+const bannerDesc=document.getElementById("bannerDesc");
+const bannerLink=document.getElementById("bannerLink");
+
+
+function renderTimeline(){
+
+timeline.innerHTML="";
+
+featuredData.forEach((item,index)=>{
+
+const div=document.createElement("div");
+div.classList.add("banner-thumb");
+
+if(index===0) div.classList.add("active");
+
+div.innerHTML=`<img src="${item.thumb}">`;
+
+div.onclick=()=>{
+currentFeature=index;
+updateBanner();
+};
+
+timeline.appendChild(div);
+
+});
+
+}
+
+
+function updateBanner(){
+
+bannerTitle.innerText=featuredData[currentFeature].title;
+bannerDesc.innerText=featuredData[currentFeature].desc;
+bannerLink.href=featuredData[currentFeature].link;
+
+featuredSection.style.backgroundImage=
+`linear-gradient(to right, rgba(2,6,23,.95), rgba(2,6,23,.6)),
+url('${featuredData[currentFeature].img}')`;
+
+document.querySelectorAll(".banner-thumb")
+.forEach((el,i)=>{
+el.classList.toggle("active", i===currentFeature);
+});
+
+}
+
+
+function autoSlide(){
+currentFeature=(currentFeature+1)%featuredData.length;
+updateBanner();
+}
+
+renderTimeline();
+updateBanner();
+setInterval(autoSlide,5000);
+
+
+/* SERIES SLIDER */
 
 const grid=document.getElementById("seriesGrid");
 const nextBtn=document.getElementById("nextBtn");
@@ -364,12 +564,23 @@ function updateButtons(){
 
 const max=getMaxScroll();
 
-prevBtn.style.display = position >= 0 ? "none" : "block";
-nextBtn.style.display = Math.abs(position) >= max ? "none" : "block";
+if(position>=0){
+prevBtn.style.display="none";
+}else{
+prevBtn.style.display="block";
+}
+
+if(Math.abs(position)>=max){
+nextBtn.style.display="none";
+}else{
+nextBtn.style.display="block";
+}
 
 }
 
+
 nextBtn.onclick=()=>{
+
 position-=getMove();
 
 if(Math.abs(position)>getMaxScroll())
@@ -378,9 +589,12 @@ position=-getMaxScroll();
 grid.style.transform=`translateX(${position}px)`;
 
 updateButtons();
+
 };
 
+
 prevBtn.onclick=()=>{
+
 position+=getMove();
 
 if(position>0) position=0;
@@ -388,7 +602,9 @@ if(position>0) position=0;
 grid.style.transform=`translateX(${position}px)`;
 
 updateButtons();
+
 };
+
 
 updateButtons();
 
