@@ -75,21 +75,22 @@ width:200px;
 
 #searchResults{
 position:absolute;
-top:40px;
+top:45px;      /* pushes dropdown below search box */
 left:0;
-width:100%;
+width:220px;   /* normal dropdown width */
 background:#020617;
 border-radius:8px;
 box-shadow:0 5px 20px rgba(0,0,0,.4);
 display:none;
 overflow:hidden;
-z-index:1000;
+z-index:999;
 }
 
 .search-item{
 padding:10px 14px;
 cursor:pointer;
 border-bottom:1px solid #1e293b;
+font-size:14px;
 }
 
 .search-item:hover{
