@@ -70,7 +70,7 @@ border:none;
 outline:none;
 background:#1e293b;
 color:white;
-width:200px;
+width:220px;
 }
 
 #searchResults{
@@ -855,8 +855,9 @@ const query=searchInput.value.toLowerCase();
 
 resultsBox.innerHTML="";
 
-if(query===""){
-resultsBox.style.display="none";
+if(query === ""){
+resultsBox.style.display = "none";
+resultsBox.innerHTML = "";
 return;
 }
 
@@ -882,6 +883,18 @@ resultsBox.appendChild(div);
 resultsBox.style.display="block";
 
 });
+
+searchInput.addEventListener("focus", function(){
+resultsBox.style.display = "none";
+});
+
+document.addEventListener("click", function(e){
+
+if(!e.target.closest(".search-box")){
+resultsBox.style.display="none";
+}
+
+});  
 </script>
 
 </body>
