@@ -661,9 +661,19 @@ return grid.scrollWidth-carousel.clientWidth;
 }
 
 function updateButtons(){
-const max=getMaxScroll();
-prevBtn.style.display=position>=0?"none":"block";
-nextBtn.style.display=Math.abs(position)>=max?"none":"block";
+const max = getMaxScroll();
+
+if(position >= 0){
+  prevBtn.style.display = "none";
+}else{
+  prevBtn.style.display = "block";
+}
+
+if(Math.abs(position) >= max){
+  nextBtn.style.display = "none";
+}else{
+  nextBtn.style.display = "block";
+}
 }
 
 nextBtn.onclick=()=>{
