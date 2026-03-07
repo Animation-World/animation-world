@@ -276,6 +276,9 @@ overflow:hidden;
 width:100%;
 padding:0 10px; /* FIX last card cut */
 box-sizing:border-box;
+gap:20px;
+transition: transform 0.5s ease;
+will-change: transform;  
 }
 
 .series-grid{
@@ -283,7 +286,12 @@ display:flex;
 gap:20px;
 transition:transform .5s ease;
 }
-
+#seriesGrid{
+display:flex;
+gap:20px;
+transition: transform 0.5s ease;
+will-change: transform;
+}
 .series-card{
 width:260px;
 height:340px;
@@ -652,8 +660,10 @@ const carousel=document.querySelector(".carousel");
 let position=0;
 
 function getMove(){
-const card=grid.querySelector(".series-card");
-return card.offsetWidth+20;
+const card = grid.querySelector(".series-card");
+const style = window.getComputedStyle(grid);
+const gap = parseInt(style.gap) || 20;
+return card.offsetWidth + gap;
 }
 
 function getMaxScroll(){
