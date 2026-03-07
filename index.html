@@ -28,8 +28,24 @@ font-family:'Poppins',sans-serif;
 background:#020617;
 color:white;
 overflow-x:hidden;
+padding-top:60px;  
+}
+img{
+max-width:100%;
+height:auto;
+}
+h1{
+font-size:36px;
 }
 
+@media (max-width:768px){
+
+h1{
+font-size:24px;
+}
+
+}
+  
 /* ===== CLEAN FIXED NAVBAR ===== */
 .navbar{
 position:fixed;
@@ -102,11 +118,6 @@ color:black;
 }
 
 
-/* Prevent content hiding under navbar */
-body{
-padding-top:60px;
-}
-
 .logo{
 display:flex;
 align-items:center;
@@ -153,6 +164,27 @@ font-weight:500;
 }
 
 .menu a:hover{ color:#38bdf8; }
+@media (max-width:768px){
+
+.nav-menu{
+display:none;
+flex-direction:column;
+background:#0f172a;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+}
+
+.nav-menu.active{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+
+}  
 
 /* ===== CLEAN CINEMATIC BANNER ===== */
 .featured{
@@ -256,6 +288,18 @@ box-shadow:0 0 15px rgba(56,189,248,.4);
 filter:grayscale(0%);
 transform:scale(1.05);
 }
+.banner{
+height:400px;
+}
+
+@media (max-width:768px){
+
+.banner{
+height:220px;
+}
+
+}
+
   
 /* HERO */
 .hero{
@@ -305,13 +349,19 @@ color:black;
   
 /* ⭐ FIX: stop overflow under title */
 .container{
-max-width:1100px;
+max-width:1200px;
 margin:0 auto;
-padding:0 15px;
+padding:20px;
 position:relative;
 overflow:hidden;
 }
+@media (max-width:768px){
 
+.container{
+padding:15px;
+}
+
+} 
 .section-title{
 font-size:24px;
 margin:40px 0 20px 30px;
@@ -426,7 +476,26 @@ padding:3px 8px;
 border-radius:6px;
 font-size:12px;
 }
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+@media (max-width:768px){
 
+.cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+@media (max-width:480px){
+
+.cards{
+grid-template-columns:1fr;
+}
+
+}
+  
 /* ARROWS */
 .nav-btn{
 position:absolute;
@@ -526,7 +595,7 @@ font-size:14px;
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
-
+<div class="menu-toggle">☰</div>
 </header>
 
 
