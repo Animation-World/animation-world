@@ -58,6 +58,9 @@ overflow-x:hidden;
   text-shadow: 0 0 10px rgba(56, 189, 248, .6);
 }
 .search-box{
+flex:1;
+display:flex;
+justify-content:center;  
 position:relative;
 margin-left:20px;
 }
@@ -135,7 +138,11 @@ transition:.3s ease;
 .logo:hover span{
 
 }
-
+.menu{
+display:flex;
+align-items:center;
+gap:25px;
+}
 .menu a{
 color:white;
 text-decoration:none;
@@ -461,7 +468,12 @@ font-size:14px;
 <img src="images/logo.jpeg" alt="Animation World Logo">
 <span>Animation World</span>
 </div>
-
+  
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search series...">
+<div id="searchResults"></div>
+</div>
+  
 <nav class="menu">
 <a href="index.html">Home</a>
 <a href="episodes.html">Episode Guides & Trailers</a>
@@ -469,11 +481,6 @@ font-size:14px;
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
-
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Search series...">
-<div id="searchResults"></div>
-</div>
 
 </header>
 
