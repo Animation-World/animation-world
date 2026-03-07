@@ -68,7 +68,63 @@ backdrop-filter:blur(20px);
 
 border-bottom:1px solid rgba(255,255,255,0.08);
 }
+/* MOBILE NAVBAR FIX */
 
+@media (max-width:768px){
+
+.navbar{
+flex-wrap:wrap;
+height:auto;
+padding:10px 15px;
+}
+
+/* logo smaller */
+.logo span{
+font-size:18px;
+}
+
+.logo img{
+height:34px;
+width:34px;
+}
+
+/* search box full width under navbar */
+.search-box{
+order:3;
+width:100%;
+margin-top:10px;
+}
+
+.search-box input{
+width:100%;
+}
+
+/* menu button position */
+.menu-toggle{
+order:2;
+margin-left:auto;
+font-size:28px;
+}
+
+/* menu dropdown */
+.menu{
+order:4;
+width:100%;
+display:none;
+flex-direction:column;
+gap:0;
+}
+
+.menu a{
+padding:12px 20px;
+border-top:1px solid #1e293b;
+}
+
+.menu.active{
+display:flex;
+}
+
+}
 .navbar.scrolled .logo {
   color: #38bdf8;
   text-shadow: 0 0 10px rgba(56, 189, 248, .6);
@@ -166,7 +222,19 @@ display:flex;
 align-items:center;
 gap:7px;
 }
+.menu a{
+text-decoration:none;
+color:white;
+font-weight:500;
+padding:8px 14px;
+border-radius:6px;
+transition:.3s;
+}
 
+.menu a:hover{
+background:#38bdf8;
+color:black;
+}
 @media (max-width:768px){
 
 .menu{
@@ -1093,509 +1161,6 @@ if(!e.target.closest(".search-box")){
 resultsBox.style.display="none";
 }
 
-});  
-</script>
-
-</body>
-</html>
-
-</style>
-</head>
-
-
-<body>
-
-<!-- NAVBAR -->
-<header class="navbar">
-
-<div class="logo">
-<img src="images/logo.jpeg" alt="Animation World Logo">
-<span>Animation World</span>
-</div>
-  
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Search series...">
-<div id="searchResults"></div>
-</div>
-  
-<nav class="menu">
-<a href="index.html">Home</a>
-<a href="episodes.html">Episode Guides & Trailers</a>
-<a href="news.html">News</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</nav>
-<div class="menu-toggle">☰</div>
-</header>
-
-
-<!-- FEATURED BANNER -->
-<section class="featured" id="featuredBanner">
-
-<div class="featured-content">
-<h1 id="bannerTitle">Primal</h1>
-
-<p id="bannerDesc">
-A brutal prehistoric survival story of Spear and Fang.
-</p>
-
-<a id="bannerLink" href="primal.html" class="featured-btn">
-Explore Series
-</a>
-
-</div>
-
-</section>
-
-<div class="banner-timeline" id="bannerTimeline"></div>
-
-
-<!-- HERO -->
-<section class="hero">
-
-<div id="particles-js"></div>
-
-<h2>Welcome to Animation World</h2>
-
-<p>
-Your hub for animation news, episode guides, trailers, and series updates.
-</p>
-
-</section>
-
-
-<!-- BROWSE CATEGORIES -->
-<div class="container">
-
-<h2 class="section-title">Browse Categories</h2>
-
-<div class="category-grid">
-
-<a href="episodes.html">Episode Guides & Trailers</a>
-<a href="news.html">Animation News</a>
-<a href="anime.html">Anime</a>
-<a href="upcoming.html">Upcoming Releases</a>
-
-</div>
-
-</div>
-
-
-<!-- TRENDING SERIES -->
-<div class="container">
-
-<h2 class="section-title">🔥 Trending TV Series</h2>
-
-<div class="carousel">
-
-<button class="nav-btn left" id="prevBtn">❮</button>
-
-<div class="series-grid" id="seriesGrid">
-
-<div class="series-card">
-<img src="images/primal.jpg" alt="Primal Series">
-<div class="card-content">
-<h3>Primal <span class="badge">🔥 Trending</span></h3>
-<p>Prehistoric survival story following Spear and Fang.</p>
-<a class="button" href="primal.html">Open</a>
-</div>
-</div>
-
-<div class="series-card">
-<img src="images/arcane.webp" alt="Arcane Series">
-<div class="card-content">
-<h3>Arcane</h3>
-<p>League of Legends universe with emotional storytelling.</p>
-<a class="button" href="#">Open</a>
-</div>
-</div>
-
-<div class="series-card">
-<img src="images/love-death-robots.jpg" alt="Love Death Robots">
-<div class="card-content">
-<h3>Love, Death & Robots</h3>
-<p>Sci-fi animated anthology exploring futuristic stories.</p>
-<a class="button" href="#">Open</a>
-</div>
-</div>
-
-<div class="series-card">
-<img src="images/invincible.jpg" alt="Invincible Series">
-<div class="card-content">
-<h3>Invincible</h3>
-<p>Adult superhero animated series with intense action.</p>
-<a class="button" href="#">Open</a>
-</div>
-</div>
-
-<div class="series-card">
-<img src="images/blueeye.webp" alt="Blue Eye Samurai">
-<div class="card-content">
-<h3>Blue Eye Samurai</h3>
-<p>A warrior's revenge journey.</p>
-<a class="button" href="#">Open</a>
-</div>
-</div>
-
-</div>
-
-<button class="nav-btn right" id="nextBtn">❯</button>
-
-</div>
-
-</div>
-
-
-<!-- LATEST NEWS -->
-<div class="container">
-
-<h2 class="section-title">📰 Latest News</h2>
-
-<div class="news-list">
-
-<a href="toy-story-update.html" class="news-item">
-
-<img src="images/toy-story.jpg" alt="Toy Story News">
-
-<div class="news-text">
-<h3>Toy Story Returns: New Update on Pixar’s Classic Franchise</h3>
-<p>Pixar may expand the Toy Story universe with new stories and characters.</p>
-</div>
-
-</a>
-
-
-<a href="arcane-season2-update.html" class="news-item">
-
-<img src="images/arcane.webp" alt="Arcane Season 2">
-
-<div class="news-text">
-<h3>Arcane Season 2 Release Update</h3>
-<p>The next season promises darker conflicts in Piltover and Zaun.</p>
-</div>
-
-</a>
-
-
-<a href="invincible-season3-news.html" class="news-item">
-
-<img src="images/invincible.jpg" alt="Invincible Season 3">
-
-<div class="news-text">
-<h3>Invincible Season 3 Production Update</h3>
-<p>Production is moving quickly for the next chapter of the superhero series.</p>
-</div>
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- TRAILER -->
-<div class="container">
-
-<h2 class="section-title">🎬 Latest Trailers</h2>
-
-<iframe width="100%" height="400"
-src="https://www.youtube.com/embed/VIDEOID"
-title="YouTube video player"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</div>
-
-
-<!-- FOOTER -->
-<footer>
-
-<p><strong>Animation World</strong></p>
-
-<p>
-Latest animation news, episode guides, trailers, and series updates.
-</p>
-
-<p>
-Follow us on
-<a href="https://facebook.com" target="_blank">Facebook</a>
-</p>
-
-<p>© 2026 Animation World — All rights reserved</p>
-
-</footer>
-
-
-<!-- JAVASCRIPT -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>  
-<script>
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 50 },
-    color: { value: "#38bdf8" },
-    shape: { type: "circle" },
-    opacity: {
-      value: 0.5,
-      random: true
-    },
-    size: {
-      value: 3,
-      random: true
-    },
-    move: {
-      enable: true,
-      speed: 0.7,
-      direction: "none",
-      out_mode: "out"
-    },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#38bdf8",
-      opacity: 0.2,
-      width: 1
-    }
-  },
-  interactivity: {
-    events: {
-      onhover: { enable: true, mode: "repulse" }
-    }
-  }
-});
-  
-/* FEATURED BANNER */
-
-const featuredData=[
-{
-title:"Primal",
-desc:"A brutal prehistoric survival story of Spear and Fang.",
-img:"images/primal-banner.jpg",
-thumb:"images/primal.jpg",
-link:"primal.html"
-},
-
-{
-title:"Arcane",
-desc:"League of Legends animated masterpiece.",
-img:"images/arcane-banner.jpg",
-thumb:"images/arcane.webp",
-link:"#"
-},
-
-{
-title:"Love, Death & Robots",
-desc:"Sci-fi anthology series.",
-img:"images/love-death-banner.jpg",
-thumb:"images/love-death-robots.jpg",
-link:"#"
-},
-
-{
-title:"Invincible",
-desc:"Adult superhero animation.",
-img:"images/invincible-banner.jpg",
-thumb:"images/invincible.jpg",
-link:"#"
-},
-
-{
-title:"Blue Eye Samurai",
-desc:"A warrior's revenge journey.",
-img:"images/blue-eye-samurai-banner.jpg",
-thumb:"images/blueeye.webp",
-link:"#"
-}
-
-];
-
-
-let currentFeature=0;
-
-const featuredSection=document.getElementById("featuredBanner");
-const timeline=document.getElementById("bannerTimeline");
-const bannerTitle=document.getElementById("bannerTitle");
-const bannerDesc=document.getElementById("bannerDesc");
-const bannerLink=document.getElementById("bannerLink");
-
-
-function renderTimeline(){
-
-timeline.innerHTML="";
-
-featuredData.forEach((item,index)=>{
-
-const div=document.createElement("div");
-div.classList.add("banner-thumb");
-
-if(index===0) div.classList.add("active");
-
-div.innerHTML=`<img src="${item.thumb}">`;
-
-div.onclick=()=>{
-currentFeature=index;
-updateBanner();
-};
-
-timeline.appendChild(div);
-
-});
-
-}
-
-
-function updateBanner(){
-
-bannerTitle.innerText=featuredData[currentFeature].title;
-bannerDesc.innerText=featuredData[currentFeature].desc;
-bannerLink.href=featuredData[currentFeature].link;
-
-featuredSection.style.backgroundImage=
-`linear-gradient(to right, rgba(2,6,23,.95), rgba(2,6,23,.6)),
-url('${featuredData[currentFeature].img}')`;
-
-document.querySelectorAll(".banner-thumb")
-.forEach((el,i)=>{
-el.classList.toggle("active", i===currentFeature);
-});
-
-}
-
-
-function autoSlide(){
-currentFeature=(currentFeature+1)%featuredData.length;
-updateBanner();
-}
-
-renderTimeline();
-updateBanner();
-setInterval(autoSlide,5000);
-
-
-/* SERIES SLIDER */
-
-const grid=document.getElementById("seriesGrid");
-const nextBtn=document.getElementById("nextBtn");
-const prevBtn=document.getElementById("prevBtn");
-const carousel=document.querySelector(".carousel");
-
-let position=0;
-
-function getMove(){
-const card=grid.querySelector(".series-card");
-return card.offsetWidth+20;
-}
-
-function getMaxScroll(){
-return grid.scrollWidth-carousel.clientWidth;
-}
-
-function updateButtons(){
-
-const max=getMaxScroll();
-
-if(position>=0){
-prevBtn.style.display="none";
-}else{
-prevBtn.style.display="block";
-}
-
-if(Math.abs(position)>=max){
-nextBtn.style.display="none";
-}else{
-nextBtn.style.display="block";
-}
-
-}
-
-
-nextBtn.onclick=()=>{
-
-position-=getMove();
-
-if(Math.abs(position)>getMaxScroll())
-position=-getMaxScroll();
-
-grid.style.transform=`translateX(${position}px)`;
-
-updateButtons();
-
-};
-
-
-prevBtn.onclick=()=>{
-
-position+=getMove();
-
-if(position>0) position=0;
-
-grid.style.transform=`translateX(${position}px)`;
-
-updateButtons();
-
-};
-
-
-updateButtons();
-
-/* SEARCH FUNCTION */
-
-const searchData=[
-{title:"Primal",link:"primal.html"},
-{title:"Arcane",link:"arcane.html"},
-{title:"Invincible",link:"invincible.html"},
-{title:"Blue Eye Samurai",link:"blue-eye-samurai.html"},
-{title:"Love, Death & Robots",link:"love-death-robots.html"}
-];
-
-const searchInput=document.getElementById("searchInput");
-const resultsBox=document.getElementById("searchResults");
-
-searchInput.addEventListener("keyup",function(){
-
-const query=searchInput.value.toLowerCase();
-
-resultsBox.innerHTML="";
-
-if(query === ""){
-resultsBox.style.display = "none";
-resultsBox.innerHTML = "";
-return;
-}
-
-searchData.forEach(item=>{
-
-if(item.title.toLowerCase().includes(query)){
-
-const div=document.createElement("div");
-div.classList.add("search-item");
-
-div.innerText=item.title;
-
-div.onclick=()=>{
-window.location.href=item.link;
-};
-
-resultsBox.appendChild(div);
-
-}
-
-});
-
-resultsBox.style.display="block";
-
-});
-
-searchInput.addEventListener("focus", function(){
-resultsBox.style.display = "none";
-});
-
-document.addEventListener("click", function(e){
-
-if(!e.target.closest(".search-box")){
-resultsBox.style.display="none";
-}
-
 }); 
 
 /* MOBILE MENU */
@@ -1605,7 +1170,13 @@ const menu = document.querySelector(".menu");
 
 menuToggle.onclick = () => {
 menu.classList.toggle("active");
-};  
+};
+
+document.querySelectorAll(".menu a").forEach(link=>{
+link.onclick=()=>{
+menu.classList.remove("active");
+};
+});  
 </script>
 
 </body>
