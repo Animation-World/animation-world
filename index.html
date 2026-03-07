@@ -58,9 +58,9 @@ border-bottom:1px solid rgba(255,255,255,0.08);
   text-shadow: 0 0 10px rgba(56, 189, 248, .6);
 }
 .search-box{
-flex:1;
+position:relative;
 display:flex;
-justify-content:center;  
+justify-content:center;
 }
 
 .search-box input{
@@ -75,12 +75,15 @@ width:200px;
 
 #searchResults{
 position:absolute;
-top:45px;      /* pushes dropdown below search box */
+top:100%;           /* directly below search input */
 left:0;
-width:220px;   /* normal dropdown width */
+width:100%;         /* same width as search box */
+margin-top:6px;     /* small space under input */
+
 background:#020617;
 border-radius:8px;
 box-shadow:0 5px 20px rgba(0,0,0,.4);
+
 display:none;
 overflow:hidden;
 z-index:999;
