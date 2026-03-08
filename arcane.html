@@ -130,18 +130,6 @@ color:black;
 margin-top:20px;
 }
 
-.episode-list{
-margin-top:20px;
-display:flex;
-flex-direction:column;
-gap:20px;
-}
-
-.episode{
-background:#0f172a;
-padding:20px;
-border-radius:8px;
-} 
 .container{
 max-width:1100px;
 margin:auto;
@@ -153,6 +141,63 @@ font-size:26px;
 margin-bottom:20px;
 }
 
+.season-tabs{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+.season-btn{
+background:#1e293b;
+border:none;
+color:white;
+padding:8px 14px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.season-btn.active{
+background:#38bdf8;
+color:black;
+}
+
+.episode-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+
+.episode-card{
+background:#0f172a;
+padding:15px;
+border-radius:8px;
+transition:0.3s;
+cursor:pointer;
+}
+
+.episode-card:hover{
+background:#1e293b;
+}
+
+.ep-number{
+display:inline-block;
+background:#38bdf8;
+color:black;
+font-weight:bold;
+padding:3px 8px;
+border-radius:4px;
+font-size:12px;
+margin-bottom:6px;
+}
+
+.season{
+display:none;
+}
+
+.season.active{
+display:block;
+}
+  
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -224,27 +269,54 @@ and the oppressed underground of Zaun.
 
 <h2 class="section-title">📺 Episode Guide</h2>
 
-<div class="episode-list">
-
-<div class="episode">
-<h3>Episode 1 – Welcome to the Playground</h3>
-<p>Vi and Powder grow up in the streets of Zaun while tensions rise with Piltover.</p>
+<div class="season-tabs">
+<button class="season-btn active" onclick="showSeason('s1')">Season 1</button>
+<button class="season-btn" onclick="showSeason('s2')">Season 2</button>
 </div>
 
-<div class="episode">
-<h3>Episode 2 – Some Mysteries Are Better Left Unsolved</h3>
-<p>Jayce experiments with magical technology that could change the future.</p>
+<div id="s1" class="season active">
+
+<div class="episode-grid">
+
+<div class="episode-card">
+<span class="ep-number">E1</span>
+<h4>Welcome to the Playground</h4>
 </div>
 
-<div class="episode">
-<h3>Episode 3 – The Base Violence Necessary for Change</h3>
-<p>The conflict between Zaun and Piltover escalates with tragic consequences.</p>
+<div class="episode-card">
+<span class="ep-number">E2</span>
+<h4>Some Mysteries Are Better Left Unsolved</h4>
+</div>
+
+<div class="episode-card">
+<span class="ep-number">E3</span>
+<h4>The Base Violence Necessary for Change</h4>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="s2" class="season">
+
+<div class="episode-grid">
+
+<div class="episode-card">
+<span class="ep-number">E1</span>
+<h4>Season 2 Episode 1</h4>
+</div>
+
+<div class="episode-card">
+<span class="ep-number">E2</span>
+<h4>Season 2 Episode 2</h4>
+</div>
+
 </div>
 
 </div>
 
 </section>
-
 <section class="container">
 
 <h2 class="section-title">🎬 Trailer</h2>
@@ -296,5 +368,22 @@ between Piltover and Zaun and deeper character development.
 
 </footer>
 
+<script>
+function showSeason(id){
+
+document.querySelectorAll('.season').forEach(s=>{
+s.classList.remove('active');
+});
+
+document.querySelectorAll('.season-btn').forEach(b=>{
+b.classList.remove('active');
+});
+
+document.getElementById(id).classList.add('active');
+event.target.classList.add('active');
+
+}
+</script>
+  
 </body>
 </html>
