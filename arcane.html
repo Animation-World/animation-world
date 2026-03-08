@@ -179,10 +179,11 @@ counter-reset:episode;
 background:#0f172a;
 border-radius:8px;
 overflow:hidden;
-transition:0.25s;
+transition:transform .25s ease, box-shadow .25s ease;
 
 counter-increment:episode;
 position:relative;
+overflow:hidden;  
 }
 
 .episode-card::before{
@@ -201,10 +202,38 @@ padding:2px 6px;
 border-radius:4px;
 }
 
+.episode-card::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:100%;
+height:60%;
+
+background:linear-gradient(
+to top,
+rgba(0,0,0,0.85),
+rgba(0,0,0,0.3),
+transparent
+);
+
+opacity:0;
+transition:opacity 0.3s ease;
+}
+
+.episode-card:hover::after{
+opacity:1;
+}
+  
 .episode-card img{
 width:100%;
-height:93px;
+height:85px;
 object-fit:cover;
+transition:transform 0.35s ease;
+}
+
+.episode-card:hover img{
+transform:scale(1.1);
 }
 
 .episode-card h4{
@@ -227,8 +256,8 @@ line-height:1.3;
 }
 
 .episode-card:hover{
-transform:translateY(-5px);
-box-shadow:0 12px 25px rgba(0,0,0,0.4);
+transform:translateY(-6px);
+box-shadow:0 14px 30px rgba(0,0,0,0.5);
 }
 
 .rating-bar{
