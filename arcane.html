@@ -177,18 +177,20 @@ background:#0f172a;
 border-radius:8px;
 overflow:hidden;
 cursor:pointer;
-transition:0.3s;
+transition:0.25s;
+position:relative;
 }
 
 .episode-card img{
 width:100%;
-height:140px;
+height:90px;   /* smaller image */
 object-fit:cover;
 }
 
 .episode-card h4{
-padding:10px;
-font-size:14px;
+padding:6px 8px;
+font-size:12px;
+line-height:1.3;
 }
 
 .episode-card:hover{
@@ -207,24 +209,26 @@ font-size:12px;
 margin-bottom:6px;
 }
 .episode-popup{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
+position:absolute;
+background:#020617;
+border:1px solid #1e293b;
+padding:12px;
+border-radius:8px;
+width:220px;
 display:none;
-align-items:center;
-justify-content:center;
-z-index:999;
+z-index:10;
+box-shadow:0 10px 25px rgba(0,0,0,0.6);
 }
 
-.popup-content{
-background:#020617;
-padding:25px;
-border-radius:10px;
-max-width:500px;
-width:90%;
+.popup-title{
+font-size:14px;
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.popup-meta{
+font-size:12px;
+color:#94a3b8;
 }
 
 .close-popup{
@@ -321,7 +325,7 @@ and the oppressed underground of Zaun.
 
 <div class="episode-grid">
 
-<div class="episode-card" onclick="openEpisode('ep1')">
+<div class="episode-card" onmouseenter="openEpisode('ep1')" onmouseleave="closeEpisode()">
 
 <img src="images/arcane-ep1.jpg">
 
@@ -331,51 +335,45 @@ and the oppressed underground of Zaun.
 
 </div>
 
-<div class="episode-card" onclick="openEpisode('ep2')">
+<div class="episode-card" onmouseenter="openEpisode('ep1')" onmouseleave="closeEpisode()">
 
-<img src="images/arcane-ep2.jpg">
+<img src="images/arcane-ep1.jpg">
 
-<span class="ep-number">E2</span>
+<span class="ep-number">E1</span>
 
-<h4>Some Mysteries Are Better Left Unsolved</h4>
-
-</div>
-
-<div class="episode-card" onclick="openEpisode('ep2')">
-
-<img src="images/arcane-ep2.jpg">
-
-<span class="ep-number">E2</span>
-
-<h4>Some Mysteries Are Better Left Unsolved</h4>
+<h4>Welcome to the Playground</h4>
 
 </div>
 
-<div class="episode-card" onclick="openEpisode('ep2')">
+<div class="episode-card" onmouseenter="openEpisode('ep1')" onmouseleave="closeEpisode()">
 
-<img src="images/arcane-ep2.jpg">
+<img src="images/arcane-ep1.jpg">
 
-<span class="ep-number">E2</span>
+<span class="ep-number">E1</span>
 
-<h4>Some Mysteries Are Better Left Unsolved</h4>
+<h4>Welcome to the Playground</h4>
 
-</div>  
+</div>
+
+<div class="episode-card" onmouseenter="openEpisode('ep1')" onmouseleave="closeEpisode()">
+
+<img src="images/arcane-ep1.jpg">
+
+<span class="ep-number">E1</span>
+
+<h4>Welcome to the Playground</h4>
+
+</div> 
 
 <div id="episodePopup" class="episode-popup">
 
-<div class="popup-content">
+<div class="popup-title" id="popupTitle"></div>
 
-<span class="close-popup" onclick="closeEpisode()">✖</span>
+<div class="popup-meta" id="popupRuntime"></div>
 
-<h3 id="popupTitle"></h3>
+<div class="popup-meta" id="popupRating"></div>
 
 <p id="popupDescription"></p>
-
-<p><strong>Runtime:</strong> <span id="popupRuntime"></span></p>
-
-<p><strong>Rating:</strong> <span id="popupRating"></span></p>
-
-</div>
 
 </div>
   
@@ -457,22 +455,22 @@ between Piltover and Zaun and deeper character development.
 
 <script>
 
-function openEpisode(ep){
+function openEpisode(ep,event){
 
 const data={
 
 ep1:{
 title:"Episode 1 – Welcome to the Playground",
-desc:"Vi and Powder grow up in the streets of Zaun.",
-runtime:"41 minutes",
-rating:"8.7 / 10"
+desc:"Vi and Powder grow up in Zaun.",
+runtime:"Runtime: 41 min",
+rating:"Rating: 8.7 / 10"
 },
 
 ep2:{
 title:"Episode 2 – Some Mysteries Are Better Left Unsolved",
-desc:"Jayce experiments with magical technology.",
-runtime:"39 minutes",
-rating:"8.6 / 10"
+desc:"Jayce experiments with magic.",
+runtime:"Runtime: 39 min",
+rating:"Rating: 8.6 / 10"
 }
 
 };
@@ -482,7 +480,11 @@ document.getElementById("popupDescription").innerText=data[ep].desc;
 document.getElementById("popupRuntime").innerText=data[ep].runtime;
 document.getElementById("popupRating").innerText=data[ep].rating;
 
-document.getElementById("episodePopup").style.display="flex";
+const popup=document.getElementById("episodePopup");
+
+popup.style.display="block";
+popup.style.left=event.pageX+15+"px";
+popup.style.top=event.pageY+15+"px";
 
 }
 
