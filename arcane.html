@@ -163,19 +163,36 @@ color:black;
 
 .episode-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(4,1fr);
 gap:15px;
 }
-
+@media(max-width:900px){
+.episode-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+  
 .episode-card{
 background:#0f172a;
-padding:15px;
 border-radius:8px;
-transition:0.3s;
+overflow:hidden;
 cursor:pointer;
+transition:0.3s;
+}
+
+.episode-card img{
+width:100%;
+height:140px;
+object-fit:cover;
+}
+
+.episode-card h4{
+padding:10px;
+font-size:14px;
 }
 
 .episode-card:hover{
+transform:scale(1.03);
 background:#1e293b;
 }
 
@@ -189,7 +206,33 @@ border-radius:4px;
 font-size:12px;
 margin-bottom:6px;
 }
+.episode-popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
 
+.popup-content{
+background:#020617;
+padding:25px;
+border-radius:10px;
+max-width:500px;
+width:90%;
+}
+
+.close-popup{
+float:right;
+cursor:pointer;
+font-size:20px;
+}
+  
 .season{
 display:none;
 }
@@ -278,21 +321,64 @@ and the oppressed underground of Zaun.
 
 <div class="episode-grid">
 
-<div class="episode-card">
+<div class="episode-card" onclick="openEpisode('ep1')">
+
+<img src="images/arcane-ep1.jpg">
+
 <span class="ep-number">E1</span>
+
 <h4>Welcome to the Playground</h4>
+
 </div>
 
-<div class="episode-card">
+<div class="episode-card" onclick="openEpisode('ep2')">
+
+<img src="images/arcane-ep2.jpg">
+
 <span class="ep-number">E2</span>
+
 <h4>Some Mysteries Are Better Left Unsolved</h4>
+
 </div>
 
-<div class="episode-card">
-<span class="ep-number">E3</span>
-<h4>The Base Violence Necessary for Change</h4>
+<div class="episode-card" onclick="openEpisode('ep2')">
+
+<img src="images/arcane-ep2.jpg">
+
+<span class="ep-number">E2</span>
+
+<h4>Some Mysteries Are Better Left Unsolved</h4>
+
 </div>
 
+<div class="episode-card" onclick="openEpisode('ep2')">
+
+<img src="images/arcane-ep2.jpg">
+
+<span class="ep-number">E2</span>
+
+<h4>Some Mysteries Are Better Left Unsolved</h4>
+
+</div>  
+
+<div id="episodePopup" class="episode-popup">
+
+<div class="popup-content">
+
+<span class="close-popup" onclick="closeEpisode()">✖</span>
+
+<h3 id="popupTitle"></h3>
+
+<p id="popupDescription"></p>
+
+<p><strong>Runtime:</strong> <span id="popupRuntime"></span></p>
+
+<p><strong>Rating:</strong> <span id="popupRating"></span></p>
+
+</div>
+
+</div>
+  
 </div>
 
 </div>
@@ -368,7 +454,44 @@ between Piltover and Zaun and deeper character development.
 
 </footer>
 
+
 <script>
+
+function openEpisode(ep){
+
+const data={
+
+ep1:{
+title:"Episode 1 – Welcome to the Playground",
+desc:"Vi and Powder grow up in the streets of Zaun.",
+runtime:"41 minutes",
+rating:"8.7 / 10"
+},
+
+ep2:{
+title:"Episode 2 – Some Mysteries Are Better Left Unsolved",
+desc:"Jayce experiments with magical technology.",
+runtime:"39 minutes",
+rating:"8.6 / 10"
+}
+
+};
+
+document.getElementById("popupTitle").innerText=data[ep].title;
+document.getElementById("popupDescription").innerText=data[ep].desc;
+document.getElementById("popupRuntime").innerText=data[ep].runtime;
+document.getElementById("popupRating").innerText=data[ep].rating;
+
+document.getElementById("episodePopup").style.display="flex";
+
+}
+
+function closeEpisode(){
+document.getElementById("episodePopup").style.display="none";
+}
+
+
+  
 function showSeason(id){
 
 document.querySelectorAll('.season').forEach(s=>{
