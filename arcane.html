@@ -25,7 +25,7 @@ margin-top:40px;
 color:#94a3b8;
 }
   
-/* SERIES PAGE */
+/* HERO BOX STYLE */
 
 .series-hero{
 display:flex;
@@ -34,6 +34,21 @@ padding:20px;
 max-width:1100px;
 margin:0 auto;
 align-items:center;
+background:#0f172a;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+animation:fadeHero 1s ease;
+}
+
+@keyframes fadeHero{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 .series-hero img{
@@ -56,7 +71,21 @@ margin-left:8px;
 line-height:1.6;
 color:#cbd5e1;
 }
+  
+.series-genres{
+margin-top:15px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
 
+.series-genres span{
+background:#1e293b;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+}
+  
 .series-meta{
 margin-top:15px;
 display:flex;
@@ -65,7 +94,29 @@ flex-wrap:wrap;
 color:#94a3b8;
 font-size:14px;
 }
+.share-box{
+margin-top:15px;
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+}
 
+.share-btn{
+background:#1e293b;
+padding:6px 12px;
+border-radius:6px;
+text-decoration:none;
+color:white;
+font-size:13px;
+transition:0.3s;
+}
+
+.share-btn:hover{
+background:#38bdf8;
+color:black;
+}
+  
 .trailer-box{
 margin-top:20px;
 }
@@ -128,16 +179,34 @@ Arcane is an animated action series set in the League of Legends universe.
 The story follows the growing conflict between the wealthy city of Piltover
 and the oppressed underground of Zaun.
 </p>
+<div class="series-genres">
 
+<span>Animation</span>
+<span>Action</span>
+<span>Adventure</span>
+<span>Fantasy</span>
+
+</div>
+  
 <div class="series-meta">
 
-<span>⭐ IMDb: 9.0</span>
+<span>⭐ IMDb: 9.0 / 10</span>
 <span>📺 Seasons: 1</span>
 <span>🎬 Studio: Riot Games / Fortiche</span>
 <span>📅 Release: 2021</span>
 
 </div>
+  
+<div class="share-box">
 
+<span>Share:</span>
+
+<a href="#" class="share-btn">Facebook</a>
+<a href="#" class="share-btn">Twitter</a>
+<a href="#" class="share-btn">WhatsApp</a>
+
+</div>
+  
 </div>
 
 </section>
