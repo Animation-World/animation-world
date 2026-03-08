@@ -161,22 +161,44 @@ background:#38bdf8;
 color:black;
 }
 
-.episode-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-}
+  
 @media(max-width:900px){
 .episode-grid{
 grid-template-columns:repeat(2,1fr);
 }
 }
-  
+.episode-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+
+counter-reset:episode;
+}
+
 .episode-card{
 background:#0f172a;
 border-radius:8px;
 overflow:hidden;
 transition:0.25s;
+
+counter-increment:episode;
+position:relative;
+}
+
+.episode-card::before{
+content:"E" counter(episode);
+position:absolute;
+top:6px;
+left:6px;
+
+background:#facc15;
+color:#000;
+
+font-size:11px;
+font-weight:bold;
+
+padding:2px 6px;
+border-radius:4px;
 }
 
 .episode-card img{
