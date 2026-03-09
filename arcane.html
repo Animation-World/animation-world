@@ -646,18 +646,13 @@ between Piltover and Zaun and deeper character development.
 
 <script>
  
-function showSeason(id){
+function showSeason(seasonId){
 
-document.querySelectorAll('.season').forEach(s=>{
-s.classList.remove('active');
+document.querySelectorAll(".season").forEach(function(season){
+season.style.display = "none";
 });
 
-document.querySelectorAll('.season-btn').forEach(b=>{
-b.classList.remove('active');
-});
-
-document.getElementById(id).classList.add('active');
-event.target.classList.add('active');
+document.getElementById(seasonId).style.display = "block";
 
 }
 </script>
