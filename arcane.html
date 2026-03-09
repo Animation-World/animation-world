@@ -726,7 +726,40 @@ font-size:30px;
 color:white;
 cursor:pointer;
 }  
-  
+.season-timeline{
+max-width:1100px;
+margin:80px auto;
+padding:0 20px;
+}
+
+.timeline{
+position:relative;
+border-left:3px solid #e50914;
+padding-left:30px;
+}
+
+.timeline-item{
+margin-bottom:40px;
+}
+
+.timeline-item h3{
+margin-bottom:8px;
+color:#e50914;
+}
+
+.timeline-item p{
+margin:4px 0;
+color:#ddd;
+}
+.timeline-item::before{
+content:"";
+position:absolute;
+left:-9px;
+width:16px;
+height:16px;
+background:#e50914;
+border-radius:50%;
+}  
 </style>  
 </head>
 
@@ -1281,6 +1314,30 @@ The epic finale decides the fate of Piltover, Zaun, and the future of the world.
 <img id="popupImg">
 </div>
   
+</section>
+
+<section class="season-timeline">
+
+<h2>Arcane Season Timeline</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Season 1 (2021)</h3>
+<p>Episodes: 9</p>
+<p>Original Release: November 2021</p>
+<p>IMDb Rating: 9.0 / 10</p>
+</div>
+
+<div class="timeline-item">
+<h3>Season 2 (2024)</h3>
+<p>Episodes: 9</p>
+<p>Original Release: November 2024</p>
+<p>Status: Final Season</p>
+</div>
+
+</div>
+
 </section>
   
 <section class="container">
