@@ -630,8 +630,44 @@ color:white;
 cursor:pointer;
 }
   
+.character-section{
+max-width:1100px;
+margin:70px auto;
+padding:0 20px;
+}
+
+.character-row{
+display:flex;
+gap:20px;
+overflow-x:auto;
+padding-bottom:10px;
+}
+
+.character-card{
+min-width:140px;
+text-align:center;
+cursor:pointer;
+}
+
+.character-card img{
+width:100%;
+border-radius:10px;
+transition:transform .3s ease;
+}
+
+.character-card img:hover{
+transform:scale(1.08);
+}
+
+.character-card p{
+margin-top:8px;
+font-weight:600;
+}
+  
 .gallery-section{
-margin-top:60px;
+max-width:1100px;
+margin:70px auto;
+padding:0 20px;
 }
 
 .gallery-grid{
@@ -1191,6 +1227,40 @@ The epic finale decides the fate of Piltover, Zaun, and the future of the world.
 
 </section>
 
+<section class="character-section">
+
+<h2>Main Characters</h2>
+
+<div class="character-row">
+
+<div class="character-card">
+<img src="images/jinx.jpg" alt="Jinx Arcane">
+<p>Jinx</p>
+</div>
+
+<div class="character-card">
+<img src="images/vi.jpg" alt="Vi Arcane">
+<p>Vi</p>
+</div>
+
+<div class="character-card">
+<img src="images/caitlyn.jpg" alt="Caitlyn Arcane">
+<p>Caitlyn</p>
+</div>
+
+<div class="character-card">
+<img src="images/jayce.jpg" alt="Jayce Arcane">
+<p>Jayce</p>
+</div>
+
+<div class="character-card">
+<img src="images/viktor.jpg" alt="Viktor Arcane">
+<p>Viktor</p>
+</div>
+
+</div>
+
+</section>  
   
 <section class="gallery-section">
 
@@ -1282,16 +1352,41 @@ const galleryImages=document.querySelectorAll(".gallery-grid img");
 const popup=document.getElementById("imagePopup");
 const popupImg=document.getElementById("popupImg");
 
-galleryImages.forEach(img=>{
+let currentIndex=0;
+
+galleryImages.forEach((img,index)=>{
 img.addEventListener("click",()=>{
 popup.style.display="flex";
 popupImg.src=img.src;
+currentIndex=index;
 });
 });
 
 function closeImage(){
 popup.style.display="none";
-}  
+}
+
+document.addEventListener("keydown",function(e){
+
+if(popup.style.display==="flex"){
+
+if(e.key==="ArrowRight"){
+currentIndex=(currentIndex+1)%galleryImages.length;
+popupImg.src=galleryImages[currentIndex].src;
+}
+
+if(e.key==="ArrowLeft"){
+currentIndex=(currentIndex-1+galleryImages.length)%galleryImages.length;
+popupImg.src=galleryImages[currentIndex].src;
+}
+
+if(e.key==="Escape"){
+closeImage();
+}
+
+}
+
+});
 </script>
   
 </body>
