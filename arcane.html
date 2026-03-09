@@ -630,22 +630,39 @@ color:white;
 cursor:pointer;
 }
   
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
+.gallery-section{
+margin-top:60px;
 }
 
-.gallery img{
+.gallery-grid{
+column-count:3;
+column-gap:15px;
+}
+
+.gallery-grid img{
 width:100%;
+margin-bottom:15px;
 border-radius:8px;
-transition:0.3s;
+break-inside:avoid;
+transition:transform .3s ease;
 cursor:pointer;
 }
 
-.gallery img:hover{
+.gallery-grid img:hover{
 transform:scale(1.05);
-}  
+}
+@media(max-width:900px){
+.gallery-grid{
+column-count:2;
+}
+}
+
+@media(max-width:500px){
+.gallery-grid{
+column-count:1;
+}
+}
+  
 </style>  
 </head>
 
@@ -1147,18 +1164,18 @@ The epic finale decides the fate of Piltover, Zaun, and the future of the world.
 </section>
 
   
-<section class="container">
+<section class="gallery-section">
 
-<h2 class="section-title">🖼 Image Gallery</h2>
+<h2>Arcane Gallery</h2>
 
-<div class="gallery">
+<div class="gallery-grid">
 
-<img src="arcane1.jpg" alt="Arcane Scene">
-<img src="arcane2.jpg" alt="Arcane Characters">
-<img src="arcane3.jpg" alt="Arcane Zaun City">
-<img src="arcane4.jpg" alt="Arcane Piltover">
-<img src="arcane5.jpg" alt="Arcane Jinx">
-<img src="arcane6.jpg" alt="Arcane Vi">
+<img src="images/arcane1.jpg" alt="Arcane Jinx Scene">
+<img src="images/arcane2.jpg" alt="Arcane Vi and Jinx">
+<img src="images/arcane3.jpg" alt="Arcane Zaun City">
+<img src="images/arcane4.jpg" alt="Arcane Piltover">
+<img src="images/arcane5.jpg" alt="Arcane Character Art">
+<img src="images/arcane6.jpg" alt="Arcane Battle Scene">
 
 </div>
 
