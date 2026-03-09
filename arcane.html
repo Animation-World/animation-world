@@ -165,7 +165,6 @@ color:black;
 .season-btn.active{
 background:#38bdf8;
 color:black;
-box-shadow:0 0 10px rgba(56,189,248,0.6);
 }
 
 .season-info{
@@ -828,13 +827,24 @@ between Piltover and Zaun and deeper character development.
 
 <script>
  
+
 function showSeason(seasonId){
 
+// hide all seasons
 document.querySelectorAll(".season").forEach(function(season){
-season.style.display = "none";
+season.classList.remove("active");
 });
 
-document.getElementById(seasonId).style.display = "block";
+// show selected season
+document.getElementById(seasonId).classList.add("active");
+
+
+// update active button
+document.querySelectorAll(".season-btn").forEach(function(btn){
+btn.classList.remove("active");
+});
+
+event.target.classList.add("active");
 
 }
 </script>
