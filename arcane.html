@@ -535,21 +535,29 @@ background:linear-gradient(90deg,#facc15,#f59e0b);
 display:block;
 }
 
-.video-scroll{
-display:flex;
-gap:16px;
-overflow-x:auto;
-padding-bottom:10px;
-scroll-snap-type:x mandatory;
-}
-
-.video-scroll iframe{
+.video-card{
 flex:0 0 320px;
 height:180px;
 border-radius:10px;
+overflow:hidden;
+position:relative;
+transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.video-card iframe{
+width:100%;
+height:100%;
 border:none;
-scroll-snap-align:start;
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
+pointer-events:none;
+}
+
+.video-card:hover{
+transform:scale(1.08);
+box-shadow:0 15px 35px rgba(0,0,0,0.6);
+}
+
+.video-card:hover iframe{
+pointer-events:auto;
 }
 
 .video-scroll::-webkit-scrollbar{
@@ -1050,25 +1058,29 @@ The epic finale decides the fate of Piltover, Zaun, and the future of the world.
 
 <div class="video-scroll">
 
-<iframe src="https://www.youtube.com/embed/fXmAurh012s"
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/fXmAurh012s?mute=1&controls=0"
 title="Arcane Official Trailer"
-loading="lazy"
-allowfullscreen></iframe>
+loading="lazy"></iframe>
+</div>
 
-<iframe src="https://www.youtube.com/embed/3Svs_hl897c"
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/3Svs_hl897c?mute=1&controls=0"
 title="Arcane Season 1 Trailer"
-loading="lazy"
-allowfullscreen></iframe>
+loading="lazy"></iframe>
+</div>
 
-<iframe src="https://www.youtube.com/embed/D9G1VOjN_84"
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/D9G1VOjN_84?mute=1&controls=0"
 title="Arcane Season 2 Trailer"
-loading="lazy"
-allowfullscreen></iframe>
+loading="lazy"></iframe>
+</div>
 
-<iframe src="https://www.youtube.com/embed/MXgD9b0g0gQ"
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/MXgD9b0g0gQ?mute=1&controls=0"
 title="Arcane Jinx Scene"
-loading="lazy"
-allowfullscreen></iframe>
+loading="lazy"></iframe>
+</div>
 
 </div>
 
